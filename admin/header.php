@@ -5,14 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="styles/style_admin.css">
+    <link rel="stylesheet" href="../styles/style_admin.css">
 </head>
 <body>
     <div class="boxcenter">
-        <div class="row mb header">
+        <div class="header">
             <h1>ADMIN</h1>
         </div>
-        <div class="row mb menu">
+        <div class="menu">
             <ul>
                 <li><a href="index.php">Tranh chủ</a></li>
                 <li><a href="index.php?act=adddm">Danh mục</a></li>

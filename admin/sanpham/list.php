@@ -24,6 +24,7 @@
                 <th>GÍA</th>
                 <th>HÌNH ẢNH</th>
                 <th>LƯỢT XEM</th>
+                <th></th>
             </tr>
             <?php
                 foreach ($listsanpham as $sanpham){                
@@ -52,7 +53,7 @@
             ?>
         </table>
     </div>
-    <div class="row mb10">
+    <div class="input_button">
         <input type="button" value="Chọn tất cả">
         <input type="button" value="Bỏ chọn tất cả">
         <input type="button" value="Xóa các mục đã chọn">

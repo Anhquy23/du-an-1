@@ -2,7 +2,7 @@
     <div class="row frmtitle">
         <h1>Danh sách loại hàng</h1>
     </div>
-    <div class="row mb10 frmdsloai">
+    <div class="frmdsloai">
         <table >
             <tr>
                 <th></th>
@@ -27,7 +27,7 @@
             ?>
         </table>
     </div>
-    <div class="row mb10">
+    <div class="input_button">
         <input type="button" value="Chọn tất cả">
         <input type="button" value="Bỏ chọn tất cả">
         <input type="button" value="Xóa các mục đã chọn">
