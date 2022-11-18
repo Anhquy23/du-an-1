@@ -22,7 +22,12 @@
         $listsanpham =pdo_query($sql);
         return $listsanpham;
     }
-
+    function loadall_sanpham_trangchu(){
+        $sql = "select * from sanpham where 1 order by price desc limit 10 "; 
+       
+        $listsanpham =pdo_query($sql);
+        return $listsanpham;
+    }
     function loadone_sanpham($id){
         $sql = "select * from sanpham where id =".$id;
         $dm = pdo_query_one($sql);

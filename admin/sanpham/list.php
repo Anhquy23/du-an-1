@@ -24,13 +24,14 @@
                 <th>GÍA</th>
                 <th>HÌNH ẢNH</th>
                 <th>LƯỢT XEM</th>
+                <th>THAO TÁC</th>
             </tr>
             <?php
                 foreach ($listsanpham as $sanpham){                
                 extract($sanpham);
                 $suasp = "index.php?act=suasp&id=".$id;
                 $xoasp = "index.php?act=xoasp&id=".$id;
-                $hinhpath = "../upload/" .$img;
+                $hinhpath = "../views/images/" .$img;
                 if(is_file($hinhpath)){
                     $hinh="<img src='".$hinhpath."' height = '80'>";
                 }else{
@@ -52,7 +53,7 @@
             ?>
         </table>
     </div>
-    <div class="row mb10">
+    <div class="input_button">
         <input type="button" value="Chọn tất cả">
         <input type="button" value="Bỏ chọn tất cả">
         <input type="button" value="Xóa các mục đã chọn">

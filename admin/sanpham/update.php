@@ -2,7 +2,7 @@
     if(is_array($sanpham)){
         extract($sanpham);
     }
-    $hinhpath = "../upload/" .$img;
+    $hinhpath = "../views/images/" .$img;
         if(is_file($hinhpath)){
             $hinh="<img src='".$hinhpath."' height = '80'>";
         }else{
