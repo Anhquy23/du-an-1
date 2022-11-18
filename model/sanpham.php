@@ -10,7 +10,13 @@
         pdo_execute($sql);
     }
 
-    function loadall_sanpham($kyw,$iddm){
+    function loadall_sanpham_home(){
+        $sql = "select * from sanpham where 1 order by id desc limit 0,15"; 
+        $listsanpham =pdo_query($sql);
+        return $listsanpham;
+    }
+
+    function loadall_sanpham($kyw= "",$iddm=0){
         $sql = "select * from sanpham where 1"; 
         if($kyw!=""){
             $sql.=" and name like '%".$kyw."%'";
