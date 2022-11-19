@@ -1,5 +1,3 @@
-<!-- Footer -->
-
 <footer class="footer">
 		<div class="container">
 			<div class="row">
@@ -36,13 +34,17 @@
 
 </div>
 
-<script src="js/jquery-3.2.1.min.js"></script>
-<script src="styles/bootstrap4/popper.js"></script>
-<script src="styles/bootstrap4/bootstrap.min.js"></script>
-<script src="plugins/Isotope/isotope.pkgd.min.js"></script>
-<script src="plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
-<script src="plugins/easing/easing.js"></script>
-<script src="js/custom.js"></script>
+<script src="views/js/jquery-3.2.1.min.js"></script>
+<script src="views/styles/bootstrap4/popper.js"></script>
+<script src="views/styles/bootstrap4/bootstrap.min.js"></script>
+<script src="views/plugins/Isotope/isotope.pkgd.min.js"></script>
+<script src="views/plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
+<script src="views/plugins/easing/easing.js"></script>
+<script src="views/js/custom.js"></script>
+<script src="views/js/single_custom.js"></script>
+<script src="views/js/categories_custom.js"></script>
+<script src="views/js/custom.js"></script>
+
 </body>
 
 </html>
