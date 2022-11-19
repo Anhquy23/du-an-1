@@ -10,8 +10,19 @@
         pdo_execute($sql);
     }
 
-    function loadall_sanpham($kyw,$iddm){
-        $sql = "select * from sanpham where 1"; 
+    function load_ten_dm($iddm){
+        if($iddm>=0){
+            $sql = "select * from danhmuc where id =".$iddm;
+            $dm = pdo_query_one($sql);
+            extract($dm);
+            return $name;
+        }else{
+            return "";
+        }
+    }
+
+    function loadall_sanpham($kyw= "",$iddm=0){
+        $sql = "select * from sanpham where 1";
         if($kyw!=""){
             $sql.=" and name like '%".$kyw."%'";
         }
@@ -33,7 +44,11 @@
         $dm = pdo_query_one($sql);
         return $dm;
     }
-
+    function load_sanpham_cungloai($id,$iddm){
+        $sql = "select * from sanpham where iddm=".$iddm." AND id <>".$id;
+        $listsanpham =pdo_query($sql);
+        return $listsanpham;
+}
     function update_sanpham($id,$iddm,$tensp,$giasp,$mota,$hinhsp){
         if($hinhsp!=""){
             $sql = "UPDATE sanpham set iddm=' ".$iddm." ', name=' ".$tensp." ',price=' ".$giasp." ',mota=' ".$mota." ',img=' ".$hinhsp." 'where id=".$id;

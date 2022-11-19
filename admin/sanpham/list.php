@@ -24,7 +24,7 @@
                 <th>GÍA</th>
                 <th>HÌNH ẢNH</th>
                 <th>LƯỢT XEM</th>
-                <th>THAO TÁC</th>
+                <th></th>
             </tr>
             <?php
                 foreach ($listsanpham as $sanpham){                

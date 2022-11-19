@@ -4,8 +4,8 @@
 				<div class="col">
 					<div class="main_slider_content">
 						<h6>XUÂN / BỘ SƯU TẬP MÙA HÈ 2022</h6>
-						<h1>Giảm giá tới 30% cho hàng mới về</h1>
-						<div class="red_button shop_now_button"><a href="#">Mua ngay</a></div>
+						<h1>Giảm giá tới 20% cho hàng mới về</h1>
+						<div class="red_button shop_now_button"><a href="index.php?act=categories">Mua ngay</a></div>
 					</div>
 				</div>
 			</div>
@@ -17,27 +17,16 @@
 	<div class="banner">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-4">
-					<div class="banner_item align-items-center" style="background-image:url(views/images/banner1.jpg)">
-						<div class="banner_category">
-							<a href="categories.html">TIẾNG ANH</a>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="banner_item align-items-center" style="background-image:url(views/images/banner2.jpg)">
-						<div class="banner_category">
-							<a href="categories.html">NGỮ VĂN</a>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4">
+                <?php foreach ($dmsp as $dm) : ?>
+
+                <div class="col-md-4">
 					<div class="banner_item align-items-center" style="background-image:url(views/images/banner3.jpg)">
 						<div class="banner_category">
-							<a href="categories.html">TOÁN</a>
-						</div>
+                            <a href="index.php?act=categories&iddm=<?= $dm['id']?>"><?= $dm['name']?></a>
+                        </div>
 					</div>
 				</div>
+                <?php endforeach;?>
 			</div>
 		</div>
 	</div>
@@ -49,22 +38,22 @@
 			<div class="row">
 				<div class="col text-center">
 					<div class="section_title new_arrivals_title">
-						<h2>DANH MỤC</h2>
+						<h2>Sản Phẩm Mới</h2>
 					</div>
 				</div>
 			</div>
-			<div class="row align-items-center">
-				<div class="col text-center">
-					<div class="new_arrivals_sorting">
-						<ul class="arrivals_grid_sorting clearfix button-group filters-button-group">
-							<li class="grid_sorting_button button d-flex flex-column justify-content-center align-items-center active is-checked" data-filter="*">Tất Cả</li>
-                            <?php foreach ($dmsp as $dm) : ?>							
-                            <li class="grid_sorting_button button d-flex flex-column justify-content-center align-items-center" data-filter=".men"><?= $dm['name']?></li>
-                            <?php endforeach;?>
-						</ul>
-					</div>
-				</div>
-			</div>
+<!--			<div class="row align-items-center">-->
+<!--				<div class="col text-center">-->
+<!--					<div class="new_arrivals_sorting">-->
+<!--						<ul class="arrivals_grid_sorting clearfix button-group filters-button-group">-->
+<!--							<li class="grid_sorting_button button d-flex flex-column justify-content-center align-items-center active is-checked" data-filter="*">Tất Cả</li>-->
+<!--                            --><?php //foreach ($dmsp as $dm) : ?><!--							-->
+<!--                            <li class="grid_sorting_button button d-flex flex-column justify-content-center align-items-center" data-filter=".men">--><?//= $dm['name']?><!--</li>-->
+<!--                            --><?php //endforeach;?>
+<!--						</ul>-->
+<!--					</div>-->
+<!--				</div>-->
+<!--			</div>-->
 			<div class="row">
 				<div class="col">
 					<div class="product-grid" data-isotope='{ "itemSelector": ".product-item", "layoutMode": "fitRows" }'>

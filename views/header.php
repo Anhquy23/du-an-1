@@ -15,7 +15,9 @@
 <link rel="stylesheet" type="text/css" href="views/styles/responsive.css">
 <link rel="stylesheet" type="text/css" href="views/styles/single_styles.css">
 <link rel="stylesheet" type="text/css" href="views/styles/single_responsive.css">
-<!--   -->
+
+
+    <!--   -->
 
 </head>
 
@@ -69,7 +71,7 @@
 				<div class="row">
 					<div class="col-lg-12 text-right">
 						<div class="logo_container">
-							<a href=""><img src="views/images/logo.png" alt="" width="170px" height="170px"></a>
+							<a href="index.php"><img src="views/images/logo.png" alt="" width="170px" height="170px"></a>
 						</div>
 						<nav class="navbar">
 							<ul id="nav">
@@ -81,14 +83,18 @@
 									</a>
 									<ul class="subnav">
 										<?php foreach ($dmsp as $dm) : ?>
-										<li><a href="index.php?act=sanpham&iddm="><?= $dm['name']?></a></li>
+										<li><a href="index.php?act=categories&iddm=<?= $dm['id']?>"><?= $dm['name']?></a></li>
                                         <?php endforeach;?>
 									</ul>
 								</li>
 								<li><a href="index.php?act=post">Bài viết</a></li>
 							</ul>
 							<ul class="navbar_user">
-								<li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
+								<li>
+                                        <form action="index.php?act=categories" method="post">
+                                            <input type="text" name="kyw">
+                                            <input type="submit" name="timkiem" value="Tìm kiếm">
+                                        </form></li>
 								<li><a href="#"><i class="fa fa-user" aria-hidden="true"></i></a></li>
 								<li class="checkout">
 									<a href="#">

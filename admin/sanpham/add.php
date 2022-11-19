@@ -4,8 +4,8 @@
     </div>
     <div class="row frmcontent">
         <form action="index.php?act=addsp" method="POST" enctype="multipart/form-data">
-            <div class="row mb10">
-                Danh muc <br>
+            <div class="input">
+                Danh mục <br>
                 <select name="iddm" >
                     <?php
                         foreach ($listdanhmuc as $danhmuc){
@@ -15,19 +15,19 @@
                     ?>
                 </select>
             </div>
-            <div class="row mb10">
+            <div class="input">
                 Tên sản phẩm <br>
                 <input type="text" name="tensp" >
             </div>
-            <div class="row mb10">
+            <div class="input">
                 Giá <br>
                 <input type="text" name="giasp" >
             </div>
-            <div class="row mb10">
+            <div class="input">
                 Hình ảnh <br>
                 <input type="file" name="hinhsp" >
             </div>
-            <div class="row mb10">
+            <div class="input">
                 Mô tả <br>
                 <textarea name="mota" id="" cols="30" rows="10"></textarea>
             </div>

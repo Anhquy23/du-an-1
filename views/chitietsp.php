@@ -85,9 +85,9 @@
 				<div class="col">
 					<div class="tabs_container">
 						<ul class="tabs d-flex flex-sm-row flex-column align-items-left align-items-md-center justify-content-center">
-							<li class="tab active" data-active-tab="tab_1"><span>Description</span></li>
-							<li class="tab" data-active-tab="tab_2"><span>Additional Information</span></li>
-							<li class="tab" data-active-tab="tab_3"><span>Reviews (2)</span></li>
+							<li class="tab active" data-active-tab="tab_1"><span>Sản phẩm cùng loại</span></li>
+
+							<li class="tab" data-active-tab="tab_3"><span>Bình luận</span></li>
 						</ul>
 					</div>
 				</div>
@@ -99,34 +99,24 @@
 
 					<div id="tab_1" class="tab_container active">
 						<div class="row">
-							<div class="col-lg-5 desc_col">
-								<div class="tab_title">
-									<h4>Description</h4>
-								</div>
-								<div class="tab_text_block">
-									<h2>Pocket cotton sweatshirt</h2>
-									<p>Nam tempus turpis at metus scelerisque placerat nulla deumantos solicitud felis. Pellentesque diam dolor, elementum etos lobortis des mollis ut...</p>
-								</div>
-								<div class="tab_image">
-									<img src="images/desc_1.jpg" alt="">
-								</div>
-								<div class="tab_text_block">
-									<h2>Pocket cotton sweatshirt</h2>
-									<p>Nam tempus turpis at metus scelerisque placerat nulla deumantos solicitud felis. Pellentesque diam dolor, elementum etos lobortis des mollis ut...</p>
-								</div>
-							</div>
-							<div class="col-lg-5 offset-lg-2 desc_col">
-								<div class="tab_image">
-									<img src="images/desc_2.jpg" alt="">
-								</div>
-								<div class="tab_text_block">
-									<h2>Pocket cotton sweatshirt</h2>
-									<p>Nam tempus turpis at metus scelerisque placerat nulla deumantos solicitud felis. Pellentesque diam dolor, elementum etos lobortis des mollis ut...</p>
-								</div>
-								<div class="tab_image desc_last">
-									<img src="images/desc_3.jpg" alt="">
-								</div>
-							</div>
+                            <div class="col-xl-12 tab_title">
+                                <h4>Sản phẩm cùng loại</h4>
+                            </div>
+                            <?php foreach ($sp_cung_loai as $sp) : ?>
+                                <div class="product-item men">
+                                    <div class="product discount product_filter">
+                                        <div class="product_image">
+                                            <img src="views/images/<?= $sp['img'] ?>" alt="">
+                                        </div>
+                                        <div class="favorite favorite_left"></div>
+                                        <div class="product_info">
+                                            <h6 class="product_name"><a href="single.html"><?= $sp['name'] ?></a></h6>
+                                            <div class="product_price"><?= number_format($sp['price']) ?> đ<span><?= number_format($sp['price']*110/100) ?> đ</span></div>
+                                        </div>
+                                    </div>
+                                    <div class="red_button add_to_cart_button"><a href="index.php?act=ctsp&idsp=<?= $sp['id'] ?>">Chi tiết sản phẩm</a></div>
+                                </div>
+                            <?php endforeach ; ?>
 						</div>
 					</div>
 
