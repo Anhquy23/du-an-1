@@ -13,6 +13,7 @@
 <link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/animate.css">
 <link rel="stylesheet" type="text/css" href="styles/main_styles.css">
 <link rel="stylesheet" type="text/css" href="styles/responsive.css">
+<link rel="stylesheet" type="text/css" href="./taikhoan/register.css">
 </head>
 
 <body>
@@ -36,17 +37,41 @@
 							<ul class="top_nav_menu">
 
 								<!-- Currency / Language / My Account -->
-								
+								<?php
+									if(isset($_SESSION['user'])){
+										extract($_SESSION['user']);
+								?>
+									<li class="account">
+									<a href="#">
+										Xin chào 
+										<?=$user?>
+									</a>
+									<ul class="account_selection">
+										<li><a href="index.php?act=quenmk"><i class="fa fa-sign-in" aria-hidden="true"></i>Quên mật khẩu</a></li>
+										<li><a href="index.php?act=edit_taikhoan"><i class="fa fa-user-plus" aria-hidden="true"></i>Cập nhật tài khoản</a></li>
+										<li><a href="admin/index.php"><i class="fa fa-user-plus" aria-hidden="true"></i>Admin</a></li>
+										<li><a href="index.php?act=thoat"><i class="fa fa-user-plus" aria-hidden="true"></i>Đăng xuất</a></li>
+									</ul>
+									</li>
+
+								<?php
+
+									}else{
+								?>
+
 								<li class="account">
 									<a href="#">
 										Tài khoản
 										<i class="fa fa-angle-down"></i>
 									</a>
 									<ul class="account_selection">
-										<li><a href="#"><i class="fa fa-sign-in" aria-hidden="true"></i>Đăng nhập</a></li>
-										<li><a href="#"><i class="fa fa-user-plus" aria-hidden="true"></i>Đăng kí</a></li>
+										<li><a href="index.php?act=dangnhap"><i class="fa fa-sign-in" aria-hidden="true"></i>Đăng nhập</a></li>
+										<li><a href="index.php?act=dangky"><i class="fa fa-user-plus" aria-hidden="true"></i>Đăng kí</a></li>
 									</ul>
 								</li>
+								<?php
+									}
+								?>
 							</ul>
 						</div>
 					</div>
