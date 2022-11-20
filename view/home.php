@@ -70,28 +70,6 @@
 			<div class="row">
                 <div class="col">
                     <div class="product-grid" data-isotope='{ "itemSelector": ".product-item", "layoutMode": "fitRows" }'>
-                <?php
-                    foreach($spnew as $sp){
-                        extract($sp);
-                        $hinh=$img_path.$img;
-                        echo '
-                            <div class="product-item men">
-                                <div class="product discount product_filter">
-                                    <div class="product_image">
-                                        <img src="'.$hinh.'" alt="">
-                                    </div>
-                                    <div class="favorite favorite_left"></div>
-                                    <div class="product_info">
-                                        <h6 class="product_name"><a href="single.html">'.$name.'</a></h6>
-                                        <div class="product_price">'.$price.'đ<span>'.$price.'đ</span></div>
-                                    </div>
-                                </div>
-                                <div class="red_button add_to_cart_button"><a href="#">Chi tiết sản phẩm</a></div>
-                        </div>
-                        </div>
-                        ';
-                    }
-                ?>
                     
                  </div>
 			</div>

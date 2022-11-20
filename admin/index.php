@@ -126,7 +126,10 @@
                 $listsanpham =loadall_sanpham("",0);
                 include "sanpham/list.php";
                 break;
-
+            // case 'dskh':
+            //     $listtaikhoan=loadall_taikhoan();
+            //     include"taikhoan/list.php";
+            //     break;
             default:
                 include "home.php";
                 break;
