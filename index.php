@@ -2,6 +2,7 @@
     include "./model/pdo.php";
     include "./model/sanpham.php";
     include "./model/danhmuc.php";
+    include "./model/taikhoan.php";
     include "./views/header.php";
 
     $spnew = loadall_sanpham_trangchu();
@@ -42,6 +43,64 @@
                 }else{
                     include "./views/home.php";
                 }
+                break;
+            case 'dangky':
+                if(isset($_POST['dangky'])&& ($_POST['dangky'])){
+                    $user= $_POST['user'];
+                    $pass= $_POST['pass'];
+                    $email= $_POST['email'];
+                    $address= $_POST['address'];
+                    $tel= $_POST['tel'];
+                    insert_taikhoan($user,$pass,$email,$address,$tel);
+                    $thongbao= "ĐĂNG KÍ THÀNH CÔNG";
+                }
+                include "./views/taikhoan/dangky.php";
+                break;
+                case 'dangnhap':
+                    if(isset($_POST['dangnhap'])&& ($_POST['dangnhap'])){
+                        $user= $_POST['user'];
+                        $pass= $_POST['pass'];
+                        $checkuser = checkuser($user, $pass);
+                        if(is_array($checkuser)){
+                            $_SESSION['user']=$checkuser;
+                            header('Location:index.php');
+                        }else{
+                            $thongbao="Tài khoản khồng tồn tại";
+                        }
+                    }
+                    include "views/taikhoan/dangnhap.php";
+                    break;
+            // case 'edit_taikhoan':
+            //     if(isset($_POST['capnhat'])&& ($_POST['capnhat'])){
+            //         $user= $_POST['user'];
+            //         $email= $_POST['email'];
+            //         $address= $_POST['address'];
+            //         $tel= $_POST['tel'];
+            //         $id= $_POST['id'];
+
+            //         update_taikhoan($id,$user,$email,$address,$tel);
+            //         $_SESSION['user']=checkuser($user, $pass);
+            //         header('Location:index.php?act=edit_taikhoan');
+            //     }
+            //     include"./views/taikhoan/edit_taikhoan.php";
+            //     break;
+            // case 'quenmk':
+            //     if(isset($_POST['guiemail'])&& ($_POST['guiemail'])){
+            //         $email= $_POST['email'];
+
+            //         $checkemail =checkemail($email);
+            //         if(is_array($checkemail)){
+            //             $thongbao = "Mật khẩu của bạn là: ".$checkemail['pass'];
+            //         }else{
+            //             $thongbao="Email này không tồn tại";
+            //         }
+            //     }
+            //     include"./views/taikhoan/quenmk.php";
+            //     break;
+            case 'thoat':
+                session_unset();
+                header('Location:index.php');
+                include"./views/taikhoan/quenmk.php";
                 break;
             default:
             include "./views/home.php";

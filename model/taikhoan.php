@@ -6,8 +6,19 @@
 
     function checkuser($user, $pass){
         $sql = "select * from taikhoan where user='".$user."' and pass='".$pass."'";
-        $dm = pdo_query_one($sql);
-        return $dm;
+        $sp = pdo_query_one($sql);
+        return $sp;
+    }
+
+    function checkemail($email){
+        $sql = "select * from taikhoan where email='".$email."' ";
+        $sp = pdo_query_one($sql);
+        return $sp;
+    }
+
+    function update_taikhoan($id,$user,$email,$address,$tel){
+        $sql = "UPDATE taikhoan set user=' ".$user." ', email=' ".$email." ',address=' ".$address." ',tel=' ".$tel." 'where id=".$id;
+        pdo_execute($sql);
     }
 
 ?>

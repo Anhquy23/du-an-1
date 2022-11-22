@@ -4,9 +4,9 @@
 				<div class="col-lg-6">
 					<div class="footer_nav_container d-flex flex-sm-row flex-column align-items-center justify-content-lg-start justify-content-center text-center">
 						<ul class="footer_nav">
-							<li><a href="#">Bài viết</a></li>
-							<li><a href="#">Câu hỏi thường gặp</a></li>
-							<li><a href="contact.html">Liên hệ với chúng tôi</a></li>
+							<li><a href="index.php">Trang chủ</a></li>
+							<li><a href="index.php?act=categories">Danh mục sách</a></li>
+							<li><a href="index.php?act=post">Bài viết</a></li>
 						</ul>
 					</div>
 				</div>
@@ -25,7 +25,7 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="footer_nav_container">
-						<div class="cr">Copyright © 2022. All rights reserved</a></div>
+						<div class="cr">THieuz © 2022. All rights reserved</a></div>
 					</div>
 				</div>
 			</div>

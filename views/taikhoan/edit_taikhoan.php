@@ -19,36 +19,35 @@ top:unset;
     transform:unset;
 }
 </style>
-<head><link rel="stylesheet" type="text/css" href="./views/taikhoan/register.css"></head>
 <body>
     <div class="login-container">
         <div class="login-box">
-            <h2>ĐĂNG KÍ</h2>
-            <form action="index.php?act=dangky" method="POST">
+            <h2>Cập nhât tài khoản</h2>
+            <?php
+                if(isset($_SESSION['user'])&&($_SESSION['user'])){
+                    extract($_SESSION['user']);
+
+                }
+            ?>
+            <form action="index.php?act=edit_taikhoan" method="POST">
             <div class="user-box">
-                <input type="text" name="user" required="">
+                <input type="text" name="user" required="" value="<?=$user?>">
                 <label>Tên đăng nhập</label>
             </div>
             <div class="user-box">
-                <input type="password" name="pass" required="">
-                <label>Mật khẩu</label>
-            </div>
-            <div class="user-box">
-                <input type="email" name="email" required="">
+                <input type="email" name="email" required="" value="<?=$email?>">
                 <label>Email</label>
             </div>
             <div class="user-box">
-                <input type="text" name="tel" required="">
+                <input type="text" name="tel" required="" value="<?=$tel?>">
                 <label>Số điện thoại</label>
             </div>
             <div class="user-box">
-                <input type="text" name="address" required="">
+                <input type="text" name="address" required="" value="<?=$address?>">
                 <label>Đia chỉ</label>
             </div>
-            <div class="login">
-                <a href="">Bạn đã có tài khoản</a>
-            </div>
-            <input type="submit" value="Đăng ký" name="dangky">
+            <input type="hidden" name="id" value="<?=$id?>">
+            <input type="submit" value="Cập nhật" name="capnhat">
             </form>
             <h2 class="thongbao">
             <?php

@@ -3,7 +3,7 @@
     .login-container {
   display: flex;
   justify-content: center;
-  margin-top: 30vh;
+  margin-top: 9vh;
 }
 
 .login-box{
@@ -19,23 +19,18 @@ top:unset;
     transform:unset;
 }
 </style>
-<head><link rel="stylesheet" type="text/css" href="./views/taikhoan/register.css"></head>
-
 <body>
     <div class="login-container">
         <div class="login-box">
-            <h2>ĐĂNG NHẬP</h2>
-            <form action="index.php?act=dangnhap" method="POST">
+            <h2>Quên mật khẩu</h2>
+            <form action="index.php?act=quenmk" method="POST">
             <div class="user-box">
-                <input type="text" name="user" required="">
-                <label>Tên đăng nhập</label>
+                <input type="email" name="email" required="" >
+                <label>Email</label>
             </div>
-            <div class="user-box">
-                <input type="password" name="pass" required="">
-                <label>Mật khẩu</label>
-            </div>
-            <input type="submit" value="Đăng nhập" name="dangnhap">
+            <input type="submit" value="Gửi" name="guiemail">
             </form>
+            </div>
             <h2 class="thongbao">
             <?php
 

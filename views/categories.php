@@ -5,7 +5,6 @@
 
 
 
-
 	<div class="container product_section_container">
 		<div class="row">
 			<div class="col product_section clearfix">
