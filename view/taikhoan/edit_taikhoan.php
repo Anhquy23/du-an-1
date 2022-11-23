@@ -24,9 +24,9 @@ top:unset;
         <div class="login-box">
             <h2>Cập nhât tài khoản</h2>
             <?php
-                if(isset($_SESSION['user'])&&($_SESSION['user'])){
+                if(isset($_SESSION['user'])&&(is_array($_SESSION['user']))){
                     extract($_SESSION['user']);
-
+                    
                 }
             ?>
             <form action="index.php?act=edit_taikhoan" method="POST">

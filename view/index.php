@@ -24,13 +24,13 @@
                     $email= $_POST['email'];
                     $address= $_POST['address'];
                     $tel= $_POST['tel'];
-                    insert_taikhoan($email,$user,$pass,$address,$tel);
+                    insert_taikhoan($user,$pass,$email,$address,$tel);
                     $thongbao= "ĐĂNG KÍ THÀNH CÔNG";
                 }
                 include"../view/taikhoan/dangky.php";
                 break;
             case 'dangnhap':
-                if(isset($_POST['dangnhap'])&& ($_POST['dangnhap'])){
+                if(isset($_POST['dangnhap'])&&($_POST['dangnhap'])){
                     $user= $_POST['user'];
                     $pass= $_POST['pass'];
                     $checkuser = checkuser($user, $pass);
