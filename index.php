@@ -1,4 +1,5 @@
 <?php 
+    session_start();
     include "./model/pdo.php";
     include "./model/sanpham.php";
     include "./model/danhmuc.php";
@@ -57,18 +58,23 @@
                 include "./views/taikhoan/dangky.php";
                 break;
                 case 'dangnhap':
+                    
                     if(isset($_POST['dangnhap'])&& ($_POST['dangnhap'])){
                         $user= $_POST['user'];
                         $pass= $_POST['pass'];
                         $checkuser = checkuser($user, $pass);
                         if(is_array($checkuser)){
                             $_SESSION['user']=$checkuser;
-                            header('Location:index.php');
+                            echo "<script>
+                            window.location.href='index.php';
+                            </script>";
                         }else{
                             $thongbao="Tài khoản khồng tồn tại";
                         }
+
                     }
                     include "views/taikhoan/dangnhap.php";
+
                     break;
             // case 'edit_taikhoan':
             //     if(isset($_POST['capnhat'])&& ($_POST['capnhat'])){
@@ -99,9 +105,14 @@
             //     break;
             case 'thoat':
                 session_unset();
-                header('Location:index.php');
-                include"./views/taikhoan/quenmk.php";
+                // header('Location:index.php');
+                echo "<script>
+                    window.location.href='index.php';
+                </script>";
+                // include "./views/home.php";
+                
                 break;
+         
             default:
             include "./views/home.php";
                 break;

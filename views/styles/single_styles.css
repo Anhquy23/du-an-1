@@ -828,6 +828,8 @@ section
 	align-items: center;
 	width: auto;
 	height: 40px;
+	margin: 0px 30px;
+	
 	background: #fe4c50;
 	border-radius: 3px;
 	-webkit-transition: all 0.3s ease;

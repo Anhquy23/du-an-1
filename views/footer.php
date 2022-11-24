@@ -25,7 +25,7 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="footer_nav_container">
-						<div class="cr">THieuz © 2022. All rights reserved</a></div>
+						<div class="cr">Thieuz © 2022. All rights reserved</a></div>
 					</div>
 				</div>
 			</div>

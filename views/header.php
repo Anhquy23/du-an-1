@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Colo Shop</title>
+<title>Book Shop</title>
+<link rel="shortcut icon" type="views/images/logo.png" href="views/images/logo.png">
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="description" content="Colo Shop Template">
@@ -60,7 +61,7 @@ $dmsp = loadall_danhmuc();
                                         <?php
                                         if($role ==1){
                                             ?>
-                                            <li><a href="../admin/index.php"><i class="fa fa-user-plus" aria-hidden="true"></i>Admin</a></li>
+                                            <li><a href="./admin/index.php"><i class="fa fa-user-plus" aria-hidden="true"></i>Admin</a></li>
                                         <?php } ?>
                                         <li><a href="index.php?act=thoat"><i class="fa fa-user-plus" aria-hidden="true"></i>Đăng xuất</a></li>
                                     </ul>
@@ -122,7 +123,8 @@ $dmsp = loadall_danhmuc();
                                         <input type="text" name="kyw">
                                         <input type="submit" name="timkiem" value="Tìm kiếm">
                                     </form></li>
-                            <li><a href="#"><i class="fa fa-user" aria-hidden="true"></i></a></li>
+                            <!-- <li><a href="#"><i class="fa fa-user" aria-hidden="true"></i></a></li> -->
+                     
                             <li class="checkout">
                                 <a href="#">
                                     <i class="fa fa-shopping-cart" aria-hidden="true"></i>

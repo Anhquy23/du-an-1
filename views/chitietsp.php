@@ -48,7 +48,7 @@
 						<p><?=$onesp['mota']?></p>
 					</div>
 					<div class="free_delivery d-flex flex-row align-items-center justify-content-center">
-						<span class="ti-truck"></span><span>free delivery</span>
+						<span class="ti-truck"></span><span>Miễn phí giao hàng</span>
 					</div>
 					<div class="original_price"><?= number_format($onesp['price']*120/100) ?> đ</div>
 					<div class="product_price"><?= number_format($onesp['price']) ?> đ</div>
@@ -61,13 +61,14 @@
 					</ul>
 					
 					<div class="quantity d-flex flex-column flex-sm-row align-items-sm-center">
-                    <span>Quantity:</span>
+                    <span>SL :</span>
 						<div class="quantity_selector">
 							<span class="minus"><i class="fa fa-minus" aria-hidden="true"></i></span>
 							<span id="quantity_value">1</span>
 							<span class="plus"><i class="fa fa-plus" aria-hidden="true"></i></span>
 						</div>
-						<div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
+						<div class="red_button "><a href="#">add to cart</a></div>
+
 						<div class="product_favorite d-flex flex-column align-items-center justify-content-center"></div>
 					</div>
 				</div>
@@ -110,7 +111,7 @@
                                         </div>
                                         <div class="favorite favorite_left"></div>
                                         <div class="product_info">
-                                            <h6 class="product_name"><a href="single.html"><?= $sp['name'] ?></a></h6>
+                                            <h6 class="product_name"><a href="index.php?act=ctsp&idsp=<?= $sp['id'] ?>"><?= $sp['name'] ?></a></h6>
                                             <div class="product_price"><?= number_format($sp['price']) ?> đ<span><?= number_format($sp['price']*110/100) ?> đ</span></div>
                                         </div>
                                     </div>

@@ -61,12 +61,12 @@
 
 						<div class="product-item men">
 							<div class="product discount product_filter">
-								<div class="product_image">
+								<a href="index.php?act=ctsp&idsp=<?= $sp['id'] ?>" class="product_image">
 									<img src="views/images/<?= $sp['img'] ?>" alt="">
-								</div>
+								</a>
 								<div class="favorite favorite_left"></div>
 								<div class="product_info">
-									<h6 class="product_name"><a href="single.html"><?= $sp['name'] ?></a></h6>
+									<h6 class="product_name"><a href="index.php?act=ctsp&idsp=<?= $sp['id'] ?>"><?= $sp['name'] ?></a></h6>
 									<div class="product_price"><?= number_format($sp['price']) ?> đ<span><?= number_format($sp['price']*110/100) ?> đ</span></div>
 								</div>
 							</div>
