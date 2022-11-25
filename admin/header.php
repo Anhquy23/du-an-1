@@ -18,6 +18,6 @@
                 <li><a href="index.php?act=adddm">Danh mục</a></li>
                 <li><a href="index.php?act=addsp">Hàng hóa</a></li>
                 <li><a href="index.php?act=dskh">Khách hàng</a></li>
-                <li><a href="index.php?act=dsbl">Bình Luận</a></li>
+                <li><a href="index.php?act=listbl">Bình Luận</a></li>
             </ul>
         </div>

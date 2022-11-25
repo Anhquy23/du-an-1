@@ -6,6 +6,8 @@
     include "./model/taikhoan.php";
     include "./views/header.php";
 
+    if(!isset($_SESSION['mycart'])) $_SESSION['mycart']=[];
+
     $spnew = loadall_sanpham_trangchu();
     $dmsp = loadall_danhmuc();
     if((isset($_GET['act'])) && ($_GET['act']!="")){
@@ -110,9 +112,33 @@
                     window.location.href='index.php';
                 </script>";
                 // include "./views/home.php";
+                break;
+            case 'addtocart':
+                if(isset($_POST['addtocart'])&& ($_POST['addtocart'])){
+                    $id=$_POST['id'];
+                    $name=$_POST['name'];
+                    $img=$_POST['img'];
+                    $price=$_POST['price'];
+                    $soluong=1;
+                    $ttien=$soluong*$price;
+                    $spadd=[$id,$name,$img,$price,$soluong,$ttien];
+                    array_push( $_SESSION['mycart'],$spadd);
+                   
+
+                }
+                include "./views/viewcart.php";
+                break;
+            case 'deletecart':
+                if(isset($_GET['idcart'])){
+                    array_splice( $_SESSION['mycart'],$_GET['idcart'],1);
+                }else{
+                    $_SESSION['mycart']=[];
+                }
+                echo "<script>
+                    window.location.href='index.php?act=addtocart';
+                </script>";
                 
                 break;
-         
             default:
             include "./views/home.php";
                 break;

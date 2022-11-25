@@ -61,14 +61,20 @@
 					</ul>
 					
 					<div class="quantity d-flex flex-column flex-sm-row align-items-sm-center">
-                    <span>SL :</span>
+                    <!-- <span>SL :</span>
 						<div class="quantity_selector">
 							<span class="minus"><i class="fa fa-minus" aria-hidden="true"></i></span>
 							<span id="quantity_value">1</span>
 							<span class="plus"><i class="fa fa-plus" aria-hidden="true"></i></span>
-						</div>
-						<div class="red_button "><a href="#">add to cart</a></div>
+						</div> -->
+						<form  action="index.php?act=addtocart" method="post">
+							<input type="hidden" name="id" value="<?=$onesp['id']?>">
+							<input type="hidden" name="name" value="<?=$onesp['name']?>">
+							<input type="hidden" name="img" value="<?=$onesp['img']?>">
+							<input type="hidden" name="price" value="<?=$onesp['price']?>">
+							<input class="red_button " type="submit" name="addtocart" value="Thêm vào giỏ hàng">
 
+						</form>
 						<div class="product_favorite d-flex flex-column align-items-center justify-content-center"></div>
 					</div>
 				</div>
@@ -122,7 +128,7 @@
 					</div>
 
 					<!-- Tab Additional Info -->
-
+<!-- 
 					<div id="tab_2" class="tab_container">
 						<div class="row">
 							<div class="col additional_info_col">
@@ -133,7 +139,7 @@
 								<p>SIZE:<span>L,M,XL</span></p>
 							</div>
 						</div>
-					</div>
+					</div> -->
 
 					<!-- Tab Reviews -->
 
