@@ -67,11 +67,14 @@
 							<span id="quantity_value">1</span>
 							<span class="plus"><i class="fa fa-plus" aria-hidden="true"></i></span>
 						</div> -->
+
 						<form  action="index.php?act=addtocart" method="post">
 							<input type="hidden" name="id" value="<?=$onesp['id']?>">
 							<input type="hidden" name="name" value="<?=$onesp['name']?>">
 							<input type="hidden" name="img" value="<?=$onesp['img']?>">
 							<input type="hidden" name="price" value="<?=$onesp['price']?>">
+							<span>Số lượng :</span>
+							<input style="margin: 15px 0px" type="number" id="quantity" name="soluong"  required="" min="1" value="<?=$onesp['soluong']?>"><br>
 							<input class="red_button " type="submit" name="addtocart" value="Thêm vào giỏ hàng">
 
 						</form>

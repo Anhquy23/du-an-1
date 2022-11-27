@@ -62,8 +62,8 @@
                                     <?php $tong=0;
                                     $i=0; ?>
                                     <?php foreach($_SESSION['mycart'] as $cart) : ?>
-                                    <?php $ttien=$cart[3]*$cart[4];
-                                            $tong+=$ttien;
+                                    <?php 
+                                            $tong+=$cart[3]*$cart[4];
                                             
                                     ?>
 
@@ -81,7 +81,7 @@
                                             <span><?=$cart[4] ?></span>
                                         </td>
                                         <td class="price">
-                                            <span><?=number_format($ttien) ?> đ</span>
+                                            <span><?=number_format($cart[3]*$cart[4]) ?> đ</span>
                                         </td>
                                         <td>
                                         <a href="index.php?act=deletecart&idcart=<?=$i?>"><input type="button" value="Xóa" ></a>
@@ -95,13 +95,10 @@
                                     
                                 </tbody>
                             </table>
-                            <div>
-                                <?php
-                                    echo'
-                                        <p>Tổng thanh toán: </p>
-                                        <input type="button" value="Đặt hàng">
-                                    '
-                                ?>
+                            <div>   
+                            <a href="index.php?act=bill"><input  type="button" value="Đặt hàng"></a>  
+                            <a href="index.php?act=mybill"><input  type="button" value="Đơn hàng của tui"></a>                       
+
                             </div>
                         </div>
                     </div>

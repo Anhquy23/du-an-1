@@ -3,18 +3,20 @@
     .login-container {
   display: flex;
   justify-content: center;
-  margin-top: 9vh;
+  margin: 30vh;
+  
 }
 
 .login-box{
     width: 400px;
   padding: 10px 20px;
+  
   background: rgba(0, 0, 0, 0.5);
   box-sizing: border-box;
   box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
   border-radius: 10px;
   position:unset;
-top:unset;
+    top:unset;
     left:unset;
     transform:unset;
 }
@@ -46,7 +48,7 @@ top:unset;
                 <label>Đia chỉ</label>
             </div>
             <div class="login">
-                <a href="">Bạn đã có tài khoản</a>
+                <a href="index.php?act=dangnhap">Bạn đã có tài khoản</a>
             </div>
             <input type="submit" value="Đăng ký" name="dangky">
             </form>

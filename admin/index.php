@@ -60,7 +60,7 @@
                     $giasp= $_POST['giasp'];
                     $mota= $_POST['mota'];
                     $hinhsp=$_FILES['hinhsp']['name'];
-                    $target_dir = "../upload/";
+                    $target_dir = "./views/images/";
                     $target_file = $target_dir . basename($_FILES['hinhsp']['name']);
                     if (move_uploaded_file($_FILES["hinhsp"]["tmp_name"], $target_file)) {
                         //echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";

@@ -34,6 +34,9 @@ top:unset;
                 <input type="password" name="pass" required="">
                 <label>Mật khẩu</label>
             </div>
+            <div class="login">
+                <a href="index.php?act=dangky">Đăng ký tài khoản</a>
+            </div>
             <input type="submit" value="Đăng nhập" name="dangnhap">
             </form>
             <h2 class="thongbao">
