@@ -5,7 +5,8 @@
     include "../model/sanpham.php";
     include "../model/taikhoan.php";
     include "../view/header.php";
-    include "../view/global.php";
+
+    if(!isset($_SESSION['mycart'])) $_SESSION['mycart'] = [];
 
     $spnew = loadall_sanpham_home();
     $dsdm= loadall_danhmuc();
@@ -74,6 +75,32 @@
                 session_unset();
                 header('Location:index.php');
                 include"../view/taikhoan/quenmk.php";
+                break;
+            case 'addtocart':
+                if(isset($_POST['addcart'])&& ($_POST['addcart'])){
+                    $id = $_POST['id'];
+                    $name = $_POST['name'];
+                    $img = $_POST['img'];
+                    $price = $_POST['price'];
+                    $soluong = 1;
+                    $ttien = $soluong * $price;
+                    $spadd= [$id, $name, $img, $price, $soluong, $ttien];
+                    array_push($_SESSION['mycart'],$spadd);
+
+                }
+
+                include"../view/cart/viewcart.php";
+                break;
+            case 'delcart':
+                if(isset($_GET['idcart'])){
+                    array_slice($_SESSION['mycart'],$_GET['idcart'],1);
+                }else{
+                    $_SESSION['mycart']= [];
+                }
+                header('Location: index.php?act=viewcart');
+                break;
+            case 'cart':
+                include '../view/cart/viewcart.php';
                 break;
             default:
                 include "../view/home.php";

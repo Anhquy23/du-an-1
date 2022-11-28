@@ -27,4 +27,19 @@
         pdo_execute($sql);
     }
 
+    function delete_taikhoan($id){
+        $sql = "delete from taikhoan where id =".$id;
+        pdo_execute($sql);
+    }
+
+    function deleteAllUsers(){
+        if(isset($_COOKIE['isSelected'])) {
+            $isSelected =  $_COOKIE['isSelected'];
+            $idSelected = explode(",",$isSelected);
+            for ($i = 0; $i < count($idSelected) - 1; $i++) {
+                $sql = "DELETE FROM taikhoan where id=$idSelected[$i]";
+                pdo_execute(($sql));
+            }
+        }
+    }
 ?>
