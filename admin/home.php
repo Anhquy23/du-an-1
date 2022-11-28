@@ -1,1 +1,1 @@
-<h1>Control Panel</h1>
+<h1>Chào mừng bạn đến với trang Admin</h1>

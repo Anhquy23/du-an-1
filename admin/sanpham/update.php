@@ -11,12 +11,23 @@
 
 ?>
 
-<div class="row">
-    <div class="row frmtitle">
-        <h1>Câp nhật loại hàng</h1>
-    </div>
-    <div class="row frmcontent">
-    <form action="index.php?act=updatesp" method="POST" enctype="multipart/form-data">
+<style>
+    .row{
+        display: block;
+    }
+</style>
+
+
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">CẬP NHẬT LOẠI HÀNG</h1>
+    
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <div class="table-responsive1">
+            <form action="index.php?act=updatesp" method="POST" enctype="multipart/form-data">
             <div class="row mb10">
                 <select name="iddm" >
                     <option value="0" selected>Tât cả</option>
@@ -51,14 +62,17 @@
             </div>
             <div class="row mb10">
                 <input type="hidden" name="id" value="<?=$id?>">
-                <input type="submit" name="capnhat" value="Cập nhật">
-                <input type="reset" value="Nhập lại">
-                <a href="index.php?act=lissp"><input type="button" value="Danh sách"></a>
+                <input class="btn-primary" type="submit" name="capnhat" value="Cập nhật">
+                <a href="index.php?act=lissp"><input class="btn-success" type="button" value="Danh sách"></a>
             </div>
             <?php
                 if(isset($thongbao)&&($thongbao != "")) echo $thongbao;
 
             ?>
         </form>
+            </div>
+        </div>
     </div>
-</div>
+
+
+

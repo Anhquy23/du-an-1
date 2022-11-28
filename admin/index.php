@@ -3,6 +3,8 @@
     include "../model/danhmuc.php";
     include "../model/sanpham.php";
     include "../model/taikhoan.php";
+    include "../model/binhluan.php";
+    include "../model/thongke.php";
     include "header.php";
     // controller
 
@@ -34,7 +36,10 @@
 
             case 'suadm':
                 if(isset($_GET['id'])&&($_GET['id']>0)){
-                    loadone_danhmuc($_GET['id']);
+                    // $sql = "SELECT * FROM danhmuc where id =".$_GET['id'];
+                    // $dm = pdo_query_one($sql);
+                    $dm = loadone_danhmuc($_GET['id']);
+                    
                 }
                 include "danhmuc/update.php";
                 break;
@@ -49,7 +54,14 @@
                 $listdanhmuc =loadall_danhmuc();
                 include "danhmuc/list.php";
                 break;
-
+            case 'deletealluser':
+                $isDelete = deleteAllUsers();
+                if ($isDelete) {
+                    header('Location: ' . $_SERVER['HTTP_REFERER']);
+                    exit();
+                }
+                $thongbao = 'Xoa that bai';
+                break;
             /* controller sản phẩm */
 
             case 'addsp':
@@ -60,7 +72,7 @@
                     $giasp= $_POST['giasp'];
                     $mota= $_POST['mota'];
                     $hinhsp=$_FILES['hinhsp']['name'];
-                    $target_dir = "./views/images/";
+                    $target_dir = "../views/images/";
                     $target_file = $target_dir . basename($_FILES['hinhsp']['name']);
                     if (move_uploaded_file($_FILES["hinhsp"]["tmp_name"], $target_file)) {
                         //echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
@@ -112,7 +124,7 @@
                     $giasp= $_POST['giasp'];
                     $mota= $_POST['mota'];
                     $hinhsp=$_FILES['hinhsp']['name'];
-                    $target_dir = "../upload/";
+                    $target_dir = "../views/images/";
                     $target_file = $target_dir . basename($_FILES['hinhsp']['name']);
                     if (move_uploaded_file($_FILES["hinhsp"]["tmp_name"], $target_file)) {
                         //echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
@@ -127,13 +139,36 @@
                 $listsanpham =loadall_sanpham("",0);
                 include "sanpham/list.php";
                 break;
-                case 'listbl':
-                    include "binhluan/listbl.php";
-                    break;
-                case 'dskh':
-                    $listtaikhoan=loadall_taikhoan();
-                    include "taikhoan/list.php";
-                    break;
+            case 'dskh':
+                $listtaikhoan=loadall_taikhoan();
+                include"taikhoan/list.php";
+                break;
+            case 'xoakh':
+                if(isset($_GET['id'])&&($_GET['id']>0)){
+                    delete_taikhoan($_GET['id']);
+                }
+                $listtaikhoan=loadall_taikhoan();
+                include "taikhoan/list.php";
+                break;
+            case 'listbl':
+                $listbinhluan =loadall_binhluan(0);
+                include "binhluan/listbinhluan.php";
+                break;
+            case 'xoabl':
+                if(isset($_GET['id'])){
+                    delete_binhluan($_GET['id']);
+                }
+                $listbinhluan =loadall_binhluan(0);
+                include "binhluan/listbinhluan.php";
+                break;
+            case 'listtk':
+                $listthongke =loadall_thongke();
+                include "thongke/listthongke.php";
+                break;        
+            case 'bieudo':
+                $listthongke =loadall_thongke();
+                include "thongke/bieudo.php";
+                break;  
             default:
                 include "home.php";
                 break;
