@@ -35,18 +35,34 @@ function load_cart_count($idbill){
     $cart = pdo_query($sql);
     return sizeof($cart);
 }
+function loadall_bill_admin($kyw="",$iduser = 0){
+    
+    $sql = "select * from bill where 1"; 
+    if($iduser> 0) $sql.=" AND iduser =".$iduser;
+    if($kyw!="") $sql.=" AND id like '%".$kyw."$'";
+    $sql.=" order by id desc";
+    $listbill = pdo_query($sql);
+    return $listbill;
+}
 function loadall_bill($iduser){
     $sql = "select * from bill where iduser =".$iduser;
     $listbill = pdo_query($sql);
     return $listbill;
 }
+function loadcart_cthoadon($id){
+    $sql = "SELECT * FROM cart WHERE idbill  = $id";
+    $product = pdo_query($sql);
+    return $product;
+}
+
+
 function get_ttdh($n){
     switch ($n) {
         case '0':
-            $tt="Đơn hàng mới";
+            $tt="Đang chuẩn bị đơn hàng";
             break;
         case '1':
-            $tt="Đang chờ";
+            $tt="Đang vận chuyển";
             break;
         case '2':
             $tt="Đang giao hàng";

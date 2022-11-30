@@ -1,9 +1,8 @@
-
 <style>
     .login-container {
   display: flex;
   justify-content: center;
-  margin-top: 9vh;
+  margin-top: 30vh;
 }
 
 .login-box{
@@ -19,34 +18,33 @@ top:unset;
     transform:unset;
 }
 </style>
-<body>
+
     <div class="login-container">
         <div class="login-box">
             <h2>Cập nhât tài khoản</h2>
             <?php
-                if(isset($_SESSION['user'])&&($_SESSION['user'])){
-                    extract($_SESSION['user']);
-
+                if(isset($_SESSION['user'])){
+                    $user = $_SESSION['user'];
                 }
             ?>
             <form action="index.php?act=edit_taikhoan" method="POST">
             <div class="user-box">
-                <input type="text" name="user" required="" value="<?=$user?>">
+                <input type="text" name="user" required="" value="<?=$user['user']?>">
                 <label>Tên đăng nhập</label>
             </div>
             <div class="user-box">
-                <input type="email" name="email" required="" value="<?=$email?>">
+                <input type="email" name="email" required="" value="<?=$user['email']?>">
                 <label>Email</label>
             </div>
             <div class="user-box">
-                <input type="text" name="tel" required="" value="<?=$tel?>">
+                <input type="text" name="tel" required="" value="<?=$user['tel']?>">
                 <label>Số điện thoại</label>
             </div>
             <div class="user-box">
-                <input type="text" name="address" required="" value="<?=$address?>">
+                <input type="text" name="address" required="" value="<?=$user['address']?>">
                 <label>Đia chỉ</label>
             </div>
-            <input type="hidden" name="id" value="<?=$id?>">
+            <input type="hidden" name="id" value="<?=$user['id']?>">
             <input type="submit" value="Cập nhật" name="capnhat">
             </form>
             <h2 class="thongbao">
@@ -60,4 +58,4 @@ top:unset;
         </div>
     </div>
     
-</body>
+

@@ -36,8 +36,10 @@ top:unset;
             </div>
             <div class="login">
                 <a href="index.php?act=dangky">Đăng ký tài khoản</a>
+            <a href="index.php?act=quenmk">quên mật khẩu</a>
+
             </div>
-            <input type="submit" value="Đăng nhập" name="dangnhap">
+            <a href=""><input type="submit" value="Đăng nhập" name="dangnhap"></a>
             </form>
             <h2 class="thongbao">
             <?php

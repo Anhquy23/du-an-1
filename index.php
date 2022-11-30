@@ -79,33 +79,34 @@
                     include "views/taikhoan/dangnhap.php";
 
                     break;
-            // case 'edit_taikhoan':
-            //     if(isset($_POST['capnhat'])&& ($_POST['capnhat'])){
-            //         $user= $_POST['user'];
-            //         $email= $_POST['email'];
-            //         $address= $_POST['address'];
-            //         $tel= $_POST['tel'];
-            //         $id= $_POST['id'];
-
-            //         update_taikhoan($id,$user,$email,$address,$tel);
-            //         $_SESSION['user']=checkuser($user, $pass);
-            //         header('Location:index.php?act=edit_taikhoan');
-            //     }
-            //     include"./views/taikhoan/edit_taikhoan.php";
-            //     break;
-            // case 'quenmk':
-            //     if(isset($_POST['guiemail'])&& ($_POST['guiemail'])){
-            //         $email= $_POST['email'];
-
-            //         $checkemail =checkemail($email);
-            //         if(is_array($checkemail)){
-            //             $thongbao = "Mật khẩu của bạn là: ".$checkemail['pass'];
-            //         }else{
-            //             $thongbao="Email này không tồn tại";
-            //         }
-            //     }
-            //     include"./views/taikhoan/quenmk.php";
-            //     break;
+                case 'edit_taikhoan':
+                    if(isset($_POST['capnhat'])){
+                        $user= trim($_POST['user']);
+                        $email= trim($_POST['email']);
+                        $address= trim($_POST['address']);
+                        $tel= $_POST['tel'];
+                        $id= $_POST['id'];
+                        $thongbao= "CẬP NHẬT THÀNH CÔNG";
+    
+                        update_taikhoan($id,$user,$email,$address,$tel);
+                        $_SESSION['user']= getUserByUsernameAndEmail($user, $email);
+                        header('Location:index.php?act=edit_taikhoan');
+                    }
+                    include"views/taikhoan/edit_taikhoan.php";
+                    break;
+                case 'quenmk':
+                    if(isset($_POST['guiemail'])&& ($_POST['guiemail'])){
+                        $email= $_POST['email'];
+                        
+                        $checkemail =checkemail($email);
+                        if(is_array($checkemail)){
+                            $thongbao = "Mật khẩu của bạn là: ".$checkemail['pass'];
+                        }else{
+                            $thongbao="Email này không tồn tại";
+                        }
+                    }
+                    include"views/taikhoan/quenmk.php";
+                    break;
             case 'thoat':
                 session_unset();
                 // header('Location:index.php');
@@ -116,6 +117,7 @@
                 break;
             case 'addtocart':
                 if(isset($_POST['addtocart'])&& ($_POST['addtocart'])){
+                    
                     $id=$_POST['id'];
                     $name=$_POST['name'];
                     $img=$_POST['img'];
@@ -123,9 +125,9 @@
                     $soluong=$_POST['soluong'];
                     $ttien=$soluong*$price;
                     $spadd=[$id,$name,$img,$price,$soluong,$ttien];
-                    array_push( $_SESSION['mycart'],$spadd);
                    
-
+                        array_push( $_SESSION['mycart'],$spadd);
+                    
                 }
                 include "./views/cart/viewcart.php";
                 break;
@@ -146,17 +148,18 @@
             case 'billcomfirm':
                 if(isset($_POST['dongydathang'])&& ($_POST['dongydathang'])){
                     if(isset($_SESSION['user'])) $iduser=$_SESSION['user']['id'];
-                    else $id =0;
+                    else $iduser =0;
                     $name=$_POST['name'] ;
                     $email=$_POST['email'] ;
                     $tel=$_POST['tel'] ;
                     $address=$_POST['address'] ;
                     $pttt=$_POST['pttt'] ;
+                    date_default_timezone_set('Asia/Ho_Chi_Minh');
                     $ngaydathang=date('d/m/Y h:i:s A');
                     $tongdonhang= tongdonhang();
                     $idbill = insert_bill($iduser,$name,$email,$tel,$address,$pttt,$ngaydathang,$tongdonhang);
                     foreach($_SESSION['mycart'] as $cart){
-                        insert_cart($_SESSION['user']['id'],$cart[0],$cart[2],$cart[1],$cart[3],$cart[4],$cart[5],$idbill);
+                        insert_cart($iduser,$cart[0],$cart[2],$cart[1],$cart[3],$cart[4],$cart[5],$idbill);
                     }
                     $_SESSION['mycart']=[];
                 }

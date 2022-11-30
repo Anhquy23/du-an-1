@@ -15,14 +15,19 @@
         $sp = pdo_query_one($sql);
         return $sp;
     }
-
-    function update_taikhoan($id,$user,$email,$address,$tel){
-        $sql = "UPDATE taikhoan set user=' ".$user." ', email=' ".$email." ',address=' ".$address." ',tel=' ".$tel." 'where id=".$id;
-        pdo_execute($sql);
-    }
     function loadall_taikhoan(){
         $sql = "select * from taikhoan order by id desc";
         $listtaikhoan =pdo_query($sql);
         return $listtaikhoan;
+    }
+    function getUserByUsernameAndEmail($user, $email) {
+        $sql = "select * from taikhoan where user='".$user."' and email='".$email."'";
+        $sp = pdo_query_one($sql);
+        return $sp;
+    }
+
+    function update_taikhoan($id,$user,$email,$address,$tel){
+        $sql = "UPDATE taikhoan set user='".$user."', email='".$email."',address='".$address."',tel='".$tel."'where id=".$id;
+        pdo_execute($sql);
     }
 ?>

@@ -47,30 +47,30 @@ $dmsp = loadall_danhmuc();
 
                             <!-- Currency / Language / My Account -->
                             <?php
-                            if(isset($_SESSION['user'])){
-                                extract($_SESSION['user']);
-                                ?>
-                                <li class="account">
-                                    <a href="#">
-                                        Xin chào
-                                        <?=$user?>
-                                    </a>
-                                    <ul class="account_selection">
-                                        <li><a href="index.php?act=quenmk"><i class="fa fa-sign-in" aria-hidden="true"></i>Quên mật khẩu</a></li>
-                                        <li><a href="index.php?act=edit_taikhoan"><i class="fa fa-user-plus" aria-hidden="true"></i>Cập nhật tài khoản</a></li>
-                                        <?php
-                                        if($role ==1){
-                                            ?>
-                                            <li><a href="./admin/index.php"><i class="fa fa-user-plus" aria-hidden="true"></i>Admin</a></li>
-                                        <?php } ?>
-                                        <li><a href="index.php?act=thoat"><i class="fa fa-user-plus" aria-hidden="true"></i>Đăng xuất</a></li>
-                                    </ul>
-                                </li>
+									if(isset($_SESSION['user'])){
+										$user = $_SESSION['user'];
+								?>
+									<li class="account">
+									<a href="#">
+										Xin chào 
+										<?=$user['user']?>
+									</a>
+									<ul class="account_selection">
+										<li><a href="index.php?act=quenmk"><i class="fa fa-sign-in" aria-hidden="true"></i>Đổi mật khẩu</a></li>
+										<li><a href="index.php?act=edit_taikhoan"><i class="fa fa-user-plus" aria-hidden="true"></i>Thông tin</a></li>
+										<?php
+											if($user['role']==1){
+										?>
+										<li><a href="../admin/index.php"><i class="fa fa-user-plus" aria-hidden="true"></i>Admin</a></li>
+										<?php } ?>
+										<li><a href="index.php?act=thoat"><i class="fa fa-user-plus" aria-hidden="true"></i>Đăng xuất</a></li>
+									</ul>
+									</li>
 
-                                <?php
+								<?php
 
-                            }else{
-                                ?>
+									}else{
+								?>
 
                                 <li class="account">
                                     <a href="#">
@@ -128,7 +128,7 @@ $dmsp = loadall_danhmuc();
                             <li class="checkout">
                                 <a href="index.php?act=addtocart">
                                     <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                                    <span id="checkout_items" class="checkout_items">2</span>
+                                    <span id="checkout_items" class="checkout_items"></span>
                                 </a>
                             </li>
                         </ul>

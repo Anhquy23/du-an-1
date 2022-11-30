@@ -54,6 +54,8 @@ table img{
 </head>
 
 <body>
+<form action="index.php?act=billcomfirm" method="post">
+
     <div class="cart-table-area section-padding-100">
         <div class="container-fluid">
             <div class="row">
@@ -79,7 +81,6 @@ table img{
 
                             ?>
 
-                        <form action="index.php?act=billcomfirm" method="post">
                             <div class="row">
                                 <div class="col-12 mb-3">
                                     <input type="text" class="form-control" id="company" placeholder="Tên khách hàng"
@@ -90,7 +91,7 @@ table img{
                                         value="<?=$email?>" required="">
                                 </div>
                                 <div class="col-12 mb-3">
-                                    <input type="text" class="form-control" id="text" placeholder="Số Điện Thoại"
+<input type="text" class="form-control" id="text" placeholder="Số Điện Thoại"
                                         name="tel" value="<?=$tel?>" required="">
                                 </div>
                                 <div class="col-12 mb-3">
@@ -106,10 +107,7 @@ table img{
                                     </select>
                                 </div>
                             </div>
-                            <div class="cart-btn mt-100">
-                                        <input type="submit" name="dongydathang" value="Đồng ý đặt hàng">
-                        </div>
-                        </form>
+                            
                     </div>
                 <div class="col-12 col-lg-12">
                 <table class="" border="1">
@@ -143,7 +141,7 @@ table img{
                                             <span><?=number_format($cart[3]) ?> đ</span>
                                         </td>
                                         <td class="price">
-                                            <span><?=$cart[4] ?></span>
+<span><?=$cart[4] ?></span>
                                         </td>
                                         <td class="price">
                                             <span><?=number_format($ttien) ?> đ</span>
@@ -163,7 +161,9 @@ table img{
                     <div class="cart-summary">
                         <h5>Tổng Thanh Toán : <?=number_format($tong) ?> đ</h5>
                         <h5>Miễn phí vận chuyển</h5>
-
+                        <div class="cart-btn mt-100">
+                            <input style="margin: 10px 10px; font-size: 18px; padding:4px;" type="submit" class="btn-primary" name="dongydathang" value="Đồng ý đặt hàng">
+                        </div>
                        
                     </div>
                 </div>
@@ -178,6 +178,7 @@ table img{
     <script src="js/bootstrap.min.js"></script>
     <script src="js/plugins.js"></script>
     <script src="js/active.js"></script>
+    </form>
 
 </body>
 
