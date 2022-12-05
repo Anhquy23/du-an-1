@@ -115,9 +115,8 @@
                 </script>";
                 // include "./views/home.php";
                 break;
-            case 'addtocart':
-                if(isset($_POST['addtocart'])&& ($_POST['addtocart'])){
-                    
+            case 'addtocart':             
+                if(isset($_POST['addtocart'])){
                     $id=$_POST['id'];
                     $name=$_POST['name'];
                     $img=$_POST['img'];
@@ -125,9 +124,39 @@
                     $soluong=$_POST['soluong'];
                     $ttien=$soluong*$price;
                     $spadd=[$id,$name,$img,$price,$soluong,$ttien];
-                   
+                     //kiem tra trung` san pham trong gio hang
+                    $fl=0;
+                       for ($i=0; $i < sizeof($_SESSION['mycart']); $i++) {
+
+                        if($_SESSION['mycart'][$i][1]==$name){
+                            $fl=1;
+                            $soluongnew=$soluong+$_SESSION['mycart'][$i][4];
+                            $_SESSION['mycart'][$i][4]=$soluongnew;
+                            break;               
+                        }
+                
+                    }
+                    //neu khong trung sp trong gio hang thi them moi
+                    if($fl==0){
+                        //them moi sp vao gio hang
                         array_push( $_SESSION['mycart'],$spadd);
-                    
+                    }  
+                }
+                include "./views/cart/viewcart.php";
+                break;
+            case 'updatecart':
+                if(isset($_POST["updatecart"]))
+                { 
+                $fl=0;
+                       for ($i=0; $i < sizeof($_SESSION['mycart']); $i++) {
+
+                        if($_SESSION['mycart'][$i][0]==$_GET["id"]){
+                            $fl=1;
+                            $_SESSION['mycart'][$i][4]=$_POST['soluong'];
+                            break;               
+                        }
+                
+                    }
                 }
                 include "./views/cart/viewcart.php";
                 break;
@@ -138,7 +167,7 @@
                     $_SESSION['mycart']=[];
                 }
                 echo "<script>
-                    window.location.href='index.php?act=addtocart';
+                    window.location.href='index.php?act=addtocart'
                 </script>";
                 
                 break;

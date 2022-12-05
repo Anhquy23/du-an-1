@@ -38,7 +38,7 @@
 			<div class="row">
 				<div class="col text-center">
 					<div class="section_title new_arrivals_title">
-						<h2>Sản Phẩm Mới</h2>
+						<h2>Sản Phẩm Nổi Bật</h2>
 					</div>
 				</div>
 			</div>

@@ -38,22 +38,9 @@ table img{
 }
 </style>
 
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="description" content="">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+<link rel="stylesheet" href="./styles/core-style.css">
 
-    <!-- Title  -->
-    <title>Amado - Furniture Ecommerce Template | Checkout</title>
-
-    <link rel="stylesheet" href="./styles/core-style.css">
-
-</head>
 <?php 
     if(isset($bill)&&(is_array($bill))){
         extract($bill);
@@ -70,7 +57,7 @@ table img{
                         </div>
                         <div>
                             <?php    $pttt=get_pttt($bill['bill_pttt']); ?>
-                            <h3>THông tin khách hàng :</h3><br>
+                            <h3>Thông tin khách hàng :</h3><br>
                             <p>Người đặt hàng : <?=$bill['bill_name'] ?></p>
                             <p>Số điện thoại : <?=$bill['bill_tel'] ?></p>
                             <p>Địa chỉ : <?=$bill['bill_address'] ?></p>
@@ -154,4 +141,3 @@ table img{
 
 </body>
 
-</html>

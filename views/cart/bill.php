@@ -100,10 +100,8 @@ table img{
                                 </div>
                                 <div class="radio" class="col-12 mb-3" >
                                     <label for="">Phương thức thanh toán: </label>
-                                    <label for=""><input type="radio" name="pttt" id="" value="1" required="">Thanh toán khi nhận
+                                    <label for=""><input type="radio" name="pttt" id="" value="1" required="" checked>Thanh toán khi nhận
                                         hàng</label>
-                                    <label for=""><input type="radio" name="pttt" id="" value="2" required="">Thanh toán
-                                        online</label>
                                     </select>
                                 </div>
                             </div>

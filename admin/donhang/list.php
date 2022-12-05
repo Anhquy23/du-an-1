@@ -22,11 +22,7 @@ function get_product_id($id_sp){
             <div class="card shadow mb-4">
                 <div class="card-body">
                     <div class="table-responsive">
-                        <div class="input_button">
-                            <input onclick="selects()" class="btn-info" type="button" value="Chọn tất cả">
-                            <input onclick="deSelect()" class="btn-info " type="button" value="Bỏ chọn tất cả">
-                            <input class="btn-danger" type="button" value="Xóa các mục đã chọn">
-                        </div>
+                       
                     <form style="margin: 10px 0;" action="index.php?act=listdh" method="post">
                         <input type="text" placeholder="Nhập mã đơn hàng" name="kyw" required>
                         <input class="btn-primary" type="submit" name="listok" value="GO">
@@ -34,22 +30,22 @@ function get_product_id($id_sp){
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                     <tr>
-                        <th></th>
+                        
                         <th>MÃ ĐƠN HÀNG</th>
                         <th>KHÁCH HÀNG</th>
                         <th>SỐ LƯỢNG HÀNG</th>
                         <th>GIÁ TRỊ ĐƠN HÀNG</th>
                         <th>TÌNH TRẠNG ĐƠN HÀNG</th>
+                        <th>TÌNH TRẠNG THANH TOÁN</th>
                         <th>NGÀY ĐẶT HÀNG</th>
                         <th>THAO TÁC</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                    <?php
-                        foreach ($listbill as $bill){                
-                        extract($bill);
-                        $suasp = "index.php?act=suasp&id=".$id;
+                    <?php foreach ($listbill as $bill):?>             
+                       <?php extract($bill);
+                        $suasp = "index.php?act=suadh&id=".$id;
                  
                         $ctdh = "index.php?act=ctdh&id=".$id;
                         $kh = $bill["bill_name"].'
@@ -58,24 +54,27 @@ function get_product_id($id_sp){
                         </br>'.$bill["bill_tel"];
                         $ttdh = get_ttdh($bill['bill_satus']);
                         $countsp = load_cart_count($bill["id"]);
+                        $tttt = get_tttt($bill['bill_thanhtoan']);?>
 
-                        echo '
                             <tr>
-                                <td><input type="checkbox" name= "chk" id=""></td>
-                                <td>'.$bill['id'].'</td>
-                                <td>'.$kh.'</td>
-                                <td>'.$countsp.'</td>
-                                <td>'.$bill['total'].'</td>
-                                <td>'.$ttdh.'</td>
-                                <td>'.$bill['ngaydathang'].'</td>
-                                <td style="text-aligh:center;"><a href= "'.$suasp.'"><input style="margin-bottom: 5px" class="btn-primary" type="button" value="Sửa"></a> 
+                                <td><?=$bill['id']?></td>
+                                <td><?=$kh?></td>
+                                <td><?=$countsp?></td>
+                                <td><?=number_format($bill['total'])?> đ</td>
+                                <td><?=$ttdh?></td>
+                                <td>
+                                    <?=
+                                        
+                                        $tttt?>
+                            
+                                </td>
+                                <td><?=$bill['ngaydathang']?></td>
+                                <td style="text-aligh:center;"><a href= "<?=$suasp?>"><input style="margin-bottom: 5px" class="btn-primary" type="button" value="Sửa tình trạng đơn hàng"></a> 
                                
-                                <a href= "'.$ctdh.'"><input  class="btn-info" type="button" value="Chi tiết hóa đơn "></a> 
+                                <a href= "<?=$ctdh?>"><input  class="btn-info" type="button" value="Chi tiết hóa đơn "></a> 
                                 </td>
                             </tr>
-';
-                        }
-        ?>
+                        <?php endforeach;?>
                     </tr>
                 </tbody>
             </table>

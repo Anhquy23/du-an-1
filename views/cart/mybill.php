@@ -12,10 +12,10 @@
                                     <tr>
                                         <th>Mã đơn hàng</th>
                                         <th>Ngày đặt</th>
-                                        <th>Số lượng</th>
+                                        <th>Số lượng mặt hàng</th>
                                         <th>Tổng tiền</th>
-                                        <th>Tình trạng</th>
-                                       
+                                        <th>Tình trạng đơn hàng</th>
+                                        <th>Tình trạng thanh toán</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -24,6 +24,7 @@
                                             <?php extract($bill) ;
                                                 $ttdh=get_ttdh($bill['bill_satus']);
                                                 $countsp=load_cart_count($bill['id']);
+                                                $tttt = get_tttt($bill['bill_thanhtoan']);
                                             ?>
                                             <tr>
                                             <td><?=$bill['id'] ?></td>
@@ -31,6 +32,7 @@
                                             <td><?=$countsp ?></td>
                                             <td><?=number_format($bill['total']) ?>,000 đ</td>
                                             <td><?= $ttdh?></td>
+                                            <td><?= $tttt?></td>
                                             </tr>
                                         <?php endforeach; }?>
                               

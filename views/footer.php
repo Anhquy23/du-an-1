@@ -6,7 +6,7 @@
 						<ul class="footer_nav">
 							<li><a href="index.php">Trang chủ</a></li>
 							<li><a href="index.php?act=categories">Danh mục sách</a></li>
-							<li><a href="index.php?act=post">Bài viết</a></li>
+							<!-- <li><a href="index.php?act=post">Bài viết</a></li> -->
 						</ul>
 					</div>
 				</div>
@@ -25,7 +25,7 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="footer_nav_container">
-						<div class="cr">Thieuz © 2022. All rights reserved</a></div>
+						<div class="cr">Thieuz © 2022</a></div>
 					</div>
 				</div>
 			</div>

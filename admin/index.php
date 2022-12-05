@@ -173,6 +173,8 @@
             case 'listdh':
                 if(isset($_POST['kyw'])){
                     $kyw = $_POST['kyw'];
+                }else{
+                    $kyw = "";
                 }
                 $listbill=loadall_bill_admin($kyw,0);
                 include "donhang/list.php";
@@ -192,12 +194,43 @@
                 $bill = loadone_bill($id);
                 include "donhang/ctdh.php";
                 break; 
+            case 'suadh':
+                if(isset($_GET['id'])&&($_GET['id']>0)){
+                    // $sql = "SELECT * FROM danhmuc where id =".$_GET['id'];
+                    // $dm = pdo_query_one($sql);
+                    $bill = loadone_bill($_GET['id']);
+                    
+                }
+                include "donhang/update.php";
+                break;
+
+            case 'updatedh':
+                if(isset($_POST['capnhat'])&&($_POST['capnhat'])){
+                    $bill_satus= $_POST['bill_satus']; 
+                    $bill_thanhtoan = $_POST["bill_thanhtoan"];
+                    $id= $_POST['id'];
+                    update_bill($id,$bill_satus);
+                    if($bill_satus == 3 ){
+                        update_bill_thanhtoan($bill_thanhtoan,$bill_satus);
+                    }else{
+                        update_bill_chuathanhtoan($bill_thanhtoan,$bill_satus);
+                    }
+                }
+                echo "<script>
+                    window.location.href='index.php?act=listdh';
+                </script>";
+                // include "donhang/update.php";
+                break;
             default:
-                include "home.php";
+            echo "<script>
+            window.location.href='index.php?act=bieudo';
+        </script>";
                 break;
         }
     }else{
-        include "home.php";
+        echo "<script>
+            window.location.href='index.php?act=bieudo';
+        </script>";
     }
 
     include "footer.php";

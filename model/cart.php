@@ -39,13 +39,13 @@ function loadall_bill_admin($kyw="",$iduser = 0){
     
     $sql = "select * from bill where 1"; 
     if($iduser> 0) $sql.=" AND iduser =".$iduser;
-    if($kyw!="") $sql.=" AND id like '%".$kyw."$'";
+    if($kyw!="") $sql.=" AND id like '%".$kyw."%'";
     $sql.=" order by id desc";
     $listbill = pdo_query($sql);
     return $listbill;
 }
 function loadall_bill($iduser){
-    $sql = "select * from bill where iduser =".$iduser;
+    $sql = "select * from bill where iduser ='".$iduser."'order by id desc";
     $listbill = pdo_query($sql);
     return $listbill;
 }
@@ -54,6 +54,21 @@ function loadcart_cthoadon($id){
     $product = pdo_query($sql);
     return $product;
 }
+
+function update_bill($id,$bill_satus){
+    $sql = "UPDATE bill set bill_satus=' ".$bill_satus." 'where id=".$id;
+    pdo_execute($sql);
+}
+function update_bill_thanhtoan($bill_thanhtoan,$bill_satus){
+    $sql = "UPDATE bill set bill_thanhtoan = 1 where bill_satus = 3";
+    pdo_execute($sql);
+}
+function update_bill_chuathanhtoan($bill_thanhtoan,$bill_satus){
+    $sql = "UPDATE bill set bill_thanhtoan = 0 where bill_satus !=  3";
+    pdo_execute($sql);
+}
+
+
 
 
 function get_ttdh($n){
@@ -82,6 +97,19 @@ function get_pttt($n){
             break;
         case '2':
             $tt="Chuyển khoản";
+            break;
+        default:
+            $tt="Hong biet nua";
+            break;
+    }return $tt;
+}
+function get_tttt($n){
+    switch ($n) {      
+        case '0':
+            $tt="Chưa thanh toán";
+            break;
+        case '1':
+            $tt="Đã thanh toán";
             break;
         default:
             $tt="Hong biet nua";

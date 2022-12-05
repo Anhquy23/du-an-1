@@ -61,7 +61,7 @@ $dmsp = loadall_danhmuc();
 										<?php
 											if($user['role']==1){
 										?>
-										<li><a href="../admin/index.php"><i class="fa fa-user-plus" aria-hidden="true"></i>Admin</a></li>
+										<li><a href="admin"><i class="fa fa-user-plus" aria-hidden="true"></i>Admin</a></li>
 										<?php } ?>
 										<li><a href="index.php?act=thoat"><i class="fa fa-user-plus" aria-hidden="true"></i>Đăng xuất</a></li>
 									</ul>
@@ -115,7 +115,7 @@ $dmsp = loadall_danhmuc();
                                     <?php endforeach;?>
                                 </ul>
                             </li>
-                            <li><a href="index.php?act=post">Bài viết</a></li>
+                            <!-- <li><a href="index.php?act=post">Bài viết</a></li> -->
                         </ul>
                         <ul class="navbar_user">
                             <li>
@@ -125,10 +125,10 @@ $dmsp = loadall_danhmuc();
                                     </form></li>
                             <!-- <li><a href="#"><i class="fa fa-user" aria-hidden="true"></i></a></li> -->
                      
-                            <li class="checkout">
+                            <li class="checkout" style="margin:0px 0px 0px 20px">
                                 <a href="index.php?act=addtocart">
                                     <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                                    <span id="checkout_items" class="checkout_items"></span>
+                                    <!-- <span id="checkout_items" class="checkout_items">2</span> -->
                                 </a>
                             </li>
                         </ul>
