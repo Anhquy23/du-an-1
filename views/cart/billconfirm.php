@@ -106,7 +106,7 @@ table img{
                                             <span><?=$cart["soluong"] ?></span>
                                         </td>
                                         <td class="price">
-                                            <span><?=number_format($cart['thanhtien']) ?> đ</span>
+                                            <span><?=number_format($bill['total']) ?> đ</span>
                                         </td>
                                        
                                             </tr>

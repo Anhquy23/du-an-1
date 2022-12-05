@@ -30,7 +30,7 @@
                                             <td><?=$bill['id'] ?></td>
                                             <td><?=$bill['ngaydathang'] ?></td>
                                             <td><?=$countsp ?></td>
-                                            <td><?=number_format($bill['total']) ?>,000 đ</td>
+                                            <td><?=number_format($bill['total']) ?>đ</td>
                                             <td><?= $ttdh?></td>
                                             <td><?= $tttt?></td>
                                             </tr>
