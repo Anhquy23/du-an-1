@@ -30,4 +30,9 @@
         $sql = "UPDATE taikhoan set user='".$user."', email='".$email."',address='".$address."',tel='".$tel."'where id=".$id;
         pdo_execute($sql);
     }
+    function loadone_taikhoan($id){
+        $sql = "select * from taikhoan where id =".$id;
+        $taikhoan = pdo_query_one($sql);
+        return $taikhoan;
+    }
 ?>

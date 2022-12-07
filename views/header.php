@@ -56,7 +56,7 @@ $dmsp = loadall_danhmuc();
 										<?=$user['user']?>
 									</a>
 									<ul class="account_selection">
-										<li><a href="index.php?act=quenmk"><i class="fa fa-sign-in" aria-hidden="true"></i>Đổi mật khẩu</a></li>
+										
 										<li><a href="index.php?act=edit_taikhoan"><i class="fa fa-user-plus" aria-hidden="true"></i>Thông tin</a></li>
 										<?php
 											if($user['role']==1){

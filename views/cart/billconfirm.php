@@ -45,6 +45,10 @@ table img{
     if(isset($bill)&&(is_array($bill))){
         extract($bill);
     }
+    if(isset($taikhoan)&& $taikhoan!=0){
+        extract($taikhoan);
+    }
+
 ?>
 <body>
     <div class="cart-table-area section-padding-100">
@@ -58,10 +62,10 @@ table img{
                         <div>
                             <?php    $pttt=get_pttt($bill['bill_pttt']); ?>
                             <h3>Thông tin khách hàng :</h3><br>
-                            <p>Người đặt hàng : <?=$bill['bill_name'] ?></p>
-                            <p>Số điện thoại : <?=$bill['bill_tel'] ?></p>
-                            <p>Địa chỉ : <?=$bill['bill_address'] ?></p>
-                            <p>email : <?=$bill['bill_email'] ?></p>
+                            <p>Người đặt hàng : <?=$taikhoan['user'] ?></p>
+                            <p>Số điện thoại : <?=$taikhoan['tel'] ?></p>
+                            <p>Địa chỉ : <?=$taikhoan['address'] ?></p>
+                            <p>email : <?=$taikhoan['email'] ?></p>
                             <p>Phương thức thanh toán : <?=$pttt ?></p>
                             <p>Ngày lập hóa đơn : <?=$bill['ngaydathang'] ?></p>
                             <p>Tổng thanh toán : <?=number_format($bill['total']) ?> đ</p>
@@ -106,7 +110,7 @@ table img{
                                             <span><?=$cart["soluong"] ?></span>
                                         </td>
                                         <td class="price">
-                                            <span><?=number_format($bill['total']) ?> đ</span>
+                                            <span><?=number_format($cart['thanhtien']) ?> đ</span>
                                         </td>
                                        
                                             </tr>

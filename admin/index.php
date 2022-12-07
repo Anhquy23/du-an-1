@@ -189,7 +189,9 @@
             case 'ctdh':
                 if(isset($_GET['id'])){
                     $id = $_GET['id'];
+                    $iduser=$_GET['iduser'];
                 }
+                $taikhoan =  loadone_taikhoan($iduser);
                 $cart = loadcart_cthoadon($id);
                 $bill = loadone_bill($id);
                 include "donhang/ctdh.php";

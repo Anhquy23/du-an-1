@@ -105,7 +105,7 @@
                             $thongbao="Email này không tồn tại";
                         }
                     }
-                    include"views/taikhoan/quenmk.php";
+                    include "views/taikhoan/quenmk.php";
                     break;
             case 'thoat':
                 session_unset();
@@ -172,26 +172,35 @@
                 
                 break;
             case 'bill':
+                if($_SESSION['user']['id']==0){
+                    echo "<script>
+                    alert('Bạn cần đăng nhâp để đặt hàng.');
+                </script>";
+                include "./views/cart/viewcart.php";
+
+                }else{
+                $iduser=$_SESSION['user']['id'];
+                $taikhoan =  loadone_taikhoan($iduser);
+
                 include "./views/cart/bill.php";
+
+                }
                 break;
             case 'billcomfirm':
                 if(isset($_POST['dongydathang'])&& ($_POST['dongydathang'])){
                     if(isset($_SESSION['user'])) $iduser=$_SESSION['user']['id'];
-                    else $iduser =0;
-                    $name=$_POST['name'] ;
-                    $email=$_POST['email'] ;
-                    $tel=$_POST['tel'] ;
-                    $address=$_POST['address'] ;
+                    else $iduser =0;                 
                     $pttt=$_POST['pttt'] ;
                     date_default_timezone_set('Asia/Ho_Chi_Minh');
-                    $ngaydathang=date('d/m/Y h:i:s A');
+                    $ngaydathang=date('d/m/Y h:i A');
                     $tongdonhang= tongdonhang();
-                    $idbill = insert_bill($iduser,$name,$email,$tel,$address,$pttt,$ngaydathang,$tongdonhang);
+                    $idbill = insert_bill($iduser,$pttt,$ngaydathang,$tongdonhang);
                     foreach($_SESSION['mycart'] as $cart){
                         insert_cart($iduser,$cart[0],$cart[2],$cart[1],$cart[3],$cart[4],$cart[5],$idbill);
                     }
                     $_SESSION['mycart']=[];
                 }
+                $taikhoan =  loadone_taikhoan($iduser);
                 $bill = loadone_bill($idbill);
                 $billct = load_cart($idbill);
                 include "./views/cart/billconfirm.php";

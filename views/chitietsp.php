@@ -43,19 +43,10 @@
 	        <div class="col-lg-7">
 	            <div class="single_product_pics">
 	                <div class="row">
-	                    <div class="col-lg-3 thumbnails_col order-lg-1 order-2">
-	                        <div class="single_product_thumbnails">
-	                            <ul>
-	                                <li><img src="views/images/<?= $onesp['img'] ?>" alt=""
-	                                        data-image="views/images/<?= $onesp['img'] ?>"></li>
-	                                <li class="active"><img src="views/images/<?= $onesp['img'] ?>" alt=""
-	                                        data-image="views/images/<?= $onesp['img'] ?>"></li>
-	                                <li><img src="views/images/<?= $onesp['img'] ?>" alt=""
-	                                        data-image="views/images/<?= $onesp['img'] ?>"></li>
-	                            </ul>
-	                        </div>
+	                    <div class="col-lg-1 thumbnails_col order-lg-1 order-2">
+	                       
 	                    </div>
-	                    <div class="col-lg-9 image_col order-lg-2 order-1">
+	                    <div class="col-lg-11 image_col order-lg-2 order-1">
 	                        <div class="single_product_image">
 	                            <div class="single_product_image_background"
 	                                style="background-image:url(views/images/<?= $onesp['img'] ?>)"></div>
@@ -75,13 +66,7 @@
 	                </div>
 	                <div class="original_price"><?= number_format($onesp['price']*120/100) ?> đ</div>
 	                <div class="product_price"><?= number_format($onesp['price']) ?> đ</div>
-	                <ul class="star_rating">
-	                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
-	                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
-	                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
-	                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
-	                    <li><i class="fa fa-star-o" aria-hidden="true"></i></li>
-	                </ul>
+	                
 
 	                <div class="quantity d-flex flex-column flex-sm-row align-items-sm-center">
 	                    <!-- <span>SL :</span>

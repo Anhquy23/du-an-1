@@ -67,16 +67,14 @@ table img{
 
                         <?php
                                 
-                                if(isset($_SESSION['user'])){
-                                    $name=$_SESSION['user']['user'] ;
-                                    $email=$_SESSION['user']['email'] ;
-                                    $tel=$_SESSION['user']['tel'] ;
-                                    $address=$_SESSION['user']['address'] ;
+                                if(isset($_SESSION['user'])&&($_SESSION['user']!=0)){
+                                    extract($taikhoan);
+                                    $name=$taikhoan['user'] ;
+                                    $email=$taikhoan['email'] ;
+                                    $tel=$taikhoan['tel'] ;
+                                    $address=$taikhoan['address'] ;
                                 }else{
-                                    $name="" ;
-                                    $email="" ;
-                                    $tel="" ;
-                                    $address="" ;
+                                   
                                 }
 
                             ?>
@@ -91,7 +89,7 @@ table img{
                                         value="<?=$email?>" required="">
                                 </div>
                                 <div class="col-12 mb-3">
-<input type="text" class="form-control" id="text" placeholder="Số Điện Thoại"
+                                <input type="text" class="form-control" id="text" placeholder="Số Điện Thoại"
                                         name="tel" value="<?=$tel?>" required="">
                                 </div>
                                 <div class="col-12 mb-3">

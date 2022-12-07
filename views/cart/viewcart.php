@@ -57,8 +57,12 @@
 	                                    <div class="buttontang"><i class="fa fa-plus" aria-hidden="true"></i></div>
 	                                    </i>
 	                                </span>
+
 	                            </div>
-                                <input class="red_button " type="submit" name="updatecart" value="Cập nhật">
+                                <div style="margin :10px 0px 0px 60px" >
+                                <input style="padding :8px"  class="btn-info" type="submit" name="updatecart" value="Cập nhật">
+
+                                </div>
                             </form>
 
                             </td>

@@ -2,17 +2,20 @@
         <?php extract($bill);    
             $pttt=get_pttt($bill['bill_pttt']); 
             $ttdh = get_ttdh($bill['bill_satus']);
+                    extract($taikhoan);
+            
             ?>
+
         <h1 class="h3 mb-2 text-gray-800">THÔNG TIN KHÁCH HÀNG </h1><br>
 
         <div class="card shadow mb-4">
             <div class="card-body">
                 <div class="table-responsive">
                     <div>
-                        <p>Người đặt hàng : <?=$bill['bill_name'] ?></p>
-                        <p>Số điện thoại : <?=$bill['bill_tel'] ?></p>
-                        <p>Địa chỉ : <?=$bill['bill_address'] ?></p>
-                        <p>email : <?=$bill['bill_email'] ?></p>
+                        <p>Người đặt hàng : <?=$taikhoan['user'] ?></p>
+                        <p>Số điện thoại : <?=$taikhoan['tel'] ?></p>
+                        <p>Địa chỉ : <?=$taikhoan['address'] ?></p>
+                        <p>email : <?=$taikhoan['email'] ?></p>
                         <p>Phương thức thanh toán : <?=$pttt ?></p>
                         <p>Tình trạng đơn hàng : <?=$ttdh ?></p>
                         <p>Ngày lập hóa đơn : <?=$bill['ngaydathang'] ?></p>
