@@ -142,7 +142,7 @@
                 break;
             case 'dskh':
                 $listtaikhoan=loadall_taikhoan();
-                include"taikhoan/list.php";
+                include "taikhoan/list.php";
                 break;
             case 'xoakh':
                 if(isset($_GET['id'])&&($_GET['id']>0)){

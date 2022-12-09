@@ -121,7 +121,7 @@ $dmsp = loadall_danhmuc();
                             <li>
                                     <form action="index.php?act=categories" method="post">
                                         <input type="text" name="kyw">
-                                        <input type="submit" name="timkiem" value="Tìm kiếm">
+                                        <input class="btn-info" type="submit" name="timkiem" value="Tìm kiếm">
                                     </form></li>
                             <!-- <li><a href="#"><i class="fa fa-user" aria-hidden="true"></i></a></li> -->
                      

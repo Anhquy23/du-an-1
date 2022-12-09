@@ -48,21 +48,14 @@
                             <td class="price">
                             <form action="index.php?act=updatecart&id=<?=$cart[0] ?>" method="post">
                             <input style="margin: 15px 0px;width: 30px" type="hidden"  name="id" value=<?=$cart[0] ?>>
-                            <div class="quantity_selector">
-	                                <span class="minus">
-	                                    <div class="buttongiam"><i class="fa fa-minus" aria-hidden="true"></i></div>
-	                                </span>
-	                                <input style="margin: 15px 0px;width: 30px" type="text" id="quantity" name="soluong" value=<?=$cart[4] ?>><br>
-	                                <span class="plus">
-	                                    <div class="buttontang"><i class="fa fa-plus" aria-hidden="true"></i></div>
-	                                    </i>
-	                                </span>
+                            <div style="display:flex;">
+	                               
+	                                <input style="margin: 0px 10px ;width: 30px" type="text" id="quantity" name="soluong" value=<?=$cart[4] ?>><br>
+	                                
+                                    <input style="padding :0px 8px; height:30px;"  class="btn-info" type="submit" name="updatecart" value="Cập nhật">
 
 	                            </div>
-                                <div style="margin :10px 0px 0px 60px" >
-                                <input style="padding :8px"  class="btn-info" type="submit" name="updatecart" value="Cập nhật">
-
-                                </div>
+                            
                             </form>
 
                             </td>
@@ -116,7 +109,7 @@ var ele=document.getElementsByName('chk');
                 }  
             }  
     </script> -->
-<script>
+<!-- <script>
 let tang = document.querySelector(".buttontang");
 let giam = document.querySelector(".buttongiam");
 let quantity = document.querySelector("#quantity");
@@ -129,4 +122,4 @@ giam.onclick = () => {
         quantity.value = 1;
     }
 }
-</script>
+</script> -->
