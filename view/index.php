@@ -31,7 +31,7 @@
                 include"../view/taikhoan/dangky.php";
                 break;
             case 'dangnhap':
-                if(isset($_POST['dangnhap'])&&($_POST['dangnhap'])){
+                if(isset($_POST['dangnhap'])){
                     $user= $_POST['user'];
                     $pass= $_POST['pass'];
                     $checkuser = checkuser($user, $pass);
@@ -45,15 +45,15 @@
                 include"../view/taikhoan/dangnhap.php";
                 break;
             case 'edit_taikhoan':
-                if(isset($_POST['capnhat'])&& ($_POST['capnhat'])){
-                    $user= $_POST['user'];
-                    $email= $_POST['email'];
-                    $address= $_POST['address'];
+                if(isset($_POST['capnhat'])){
+                    $user= trim($_POST['user']);
+                    $email= trim($_POST['email']);
+                    $address= trim($_POST['address']);
                     $tel= $_POST['tel'];
                     $id= $_POST['id'];
 
                     update_taikhoan($id,$user,$email,$address,$tel);
-                    $_SESSION['user']=checkuser($user, $pass);
+                    $_SESSION['user']= getUserByUsernameAndEmail($user, $email);
                     header('Location:index.php?act=edit_taikhoan');
                 }
                 include"../view/taikhoan/edit_taikhoan.php";

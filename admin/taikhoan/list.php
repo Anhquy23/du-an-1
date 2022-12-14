@@ -84,7 +84,10 @@
                 }  
                 if (idSelected) {
                     document.cookie = `isSelected=${idSelected}`;
-                    window.location.replace('index.php?act=deletealluser');
+                    <?php
+                        echo " window.location.replace('index.php?act=deletealluser') ";
+                    ?>
+                    // window.location.replace('index.php?act=deletealluser');
                 }
             }
             

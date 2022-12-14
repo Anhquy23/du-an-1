@@ -33,6 +33,7 @@ top:unset;
                 <label>Mật khẩu</label>
             </div>
             <input type="submit" value="Đăng nhập" name="dangnhap">
+            <a href="index.php?act=quenmk">Quên mật khẩu</a>
             </form>
             <h2 class="thongbao">
             <?php

@@ -124,6 +124,13 @@
                     <span>Bình luận</span></a>
             </li>
 
+            <!-- Nav Item - Charts -->
+            <li class="nav-item">
+                <a class="nav-link" href="index.php?act=listdh">
+                    <i class="fas fa-comments"></i>                   
+                    <span>Đơn hàng</span></a>
+            </li>
+
             <!-- Nav Item - Tables -->
             <li class="nav-item">
                 <a class="nav-link" href="index.php?act=dskh">

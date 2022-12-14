@@ -5,6 +5,7 @@
     include"../model/taikhoan.php";
     include"../model/binhluan.php";
     include"../model/thongke.php";
+    include"../model/cart.php";
     include "header.php";
     // controller
 
@@ -168,7 +169,21 @@
             case 'bieudo':
                 $listthongke =loadall_thongke();
                 include "home.php";
-                break;  
+                break; 
+            case 'listdh':
+                if(isset($_POST['kyw'])&&($_POST['kyw']!= "")){
+                    $kyw = $_POST['kyw'];
+                }
+                $listbill=loadall_bill($kyw,0);
+                include "donhang/list.php";
+                break; 
+            case 'xoadh':
+                if(isset($_GET['id'])&&($_GET['id']>0)){
+                    delete_donhang($_GET['id']);
+                }
+                $listbill =loadall_bill($kyw, 0);
+                include "donhang/list.php";
+                break;
             default:
                 include "home.php";
                 break;
