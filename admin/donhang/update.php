@@ -38,11 +38,7 @@
                 <input style="margin: 12px 10px 0 10px;" class="btn-primary" type="submit" name="capnhat" value="CẬP NHẬT">
                 <a href="index.php?act=listdh"><input style="margin: 12px 0 0 0;" class="btn-success" type="button" value="Danh sách đơn hàng"></a>
             </div>
-            <?php
-                if(isset($thongbao)&&($thongbao != "")) {
-                    echo $thongbao;
-                }
-            ?>
+           
         </form>
             </div>
         </div>

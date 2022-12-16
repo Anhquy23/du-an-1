@@ -20,11 +20,9 @@
     left:unset;
     transform:unset;
 }
-.inputt{
-    padding: 10px;
-    background-color: #ccc;
-    font-size: 18px;
-    cursor: pointer;
+.btn-info{
+    padding: 10px 20px;
+   
 }
 </style>
 <head><link rel="stylesheet" type="text/css" href="./views/taikhoan/register.css"></head>
@@ -56,7 +54,7 @@
             <div class="login">
                 <a href="index.php?act=dangnhap">Bạn đã có tài khoản</a>
             </div>
-            <input class="inputt" type="submit" value="Đăng ký" name="dangky">
+            <input class="btn-info" type="submit" value="Đăng ký" name="dangky">
             </form>
             <h2 class="thongbao">
             <?php

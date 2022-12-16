@@ -3,7 +3,7 @@
             $pttt=get_pttt($bill['bill_pttt']); 
             $ttdh = get_ttdh($bill['bill_satus']);
                     extract($taikhoan);
-            
+            $tttt=get_tttt($bill['bill_thanhtoan']);
             ?>
 
         <h1 class="h3 mb-2 text-gray-800">THÔNG TIN KHÁCH HÀNG </h1><br>
@@ -20,6 +20,7 @@
                         <p>Tình trạng đơn hàng : <?=$ttdh ?></p>
                         <p>Ngày lập hóa đơn : <?=$bill['ngaydathang'] ?></p>
                         <p>Tổng thanh toán : <?=number_format($bill['total']) ?> đ</p>
+                        <p>Tình trạng thanh toán : <?=$tttt?></p>
 
                     </div>
                     <table class="table table-bordered" width="100%" cellspacing="0">

@@ -17,11 +17,9 @@
     left: unset;
     transform: unset;
 }
-.inputt{
-    padding: 10px;
-    background-color: #ccc;
-    font-size: 18px;
-    cursor: pointer;
+.btn-info{
+    padding: 10px 20px;
+    
 }
 </style>
 
@@ -47,7 +45,7 @@
                     <a href="index.php?act=quenmk">quên mật khẩu</a>
 
                 </div>
-                <input class="inputt" type="submit" value="Đăng nhập" name="dangnhap">
+                <input class="btn-info" type="submit" value="Đăng nhập" name="dangnhap">
             </form>
             <h2 class="thongbao">
                 <?php

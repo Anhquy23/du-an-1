@@ -17,8 +17,13 @@ top:unset;
     left:unset;
     transform:unset;
 }
+.btn-info{
+    padding :10px 20px;
+}
 </style>
-
+<head>
+    <link rel="stylesheet" type="text/css" href="./views/taikhoan/register.css">
+</head>
     <div class="login-container">
         <div class="login-box">
             <h2>Cập nhât tài khoản</h2>
@@ -45,7 +50,7 @@ top:unset;
                 <label>Đia chỉ</label>
             </div>
             <input type="hidden" name="id" value="<?=$user['id']?>">
-            <input type="submit" value="Cập nhật" name="capnhat">
+            <input class="btn-info"  type="submit" value="Cập nhật" name="capnhat">
             </form>
             <h2 class="thongbao">
             <?php

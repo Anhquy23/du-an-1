@@ -1,3 +1,5 @@
+<head><link rel="stylesheet" type="text/css" href="views/styles/main_styles.css">
+<link rel="stylesheet" type="text/css" href="views/styles/responsive.css"></head>
 <div class="main_slider" style="background-image:url(views/images/slider_1.jpeg)">
 		<div class="container fill_height">
 			<div class="row align-items-center fill_height">
@@ -82,7 +84,7 @@
 	</div>
 
 	<!-- Blogs -->
-
+<!-- 
 	<div class="blogs">
 		<div class="container">
 			<div class="row">
@@ -121,5 +123,5 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		</div> -->
 	</div>

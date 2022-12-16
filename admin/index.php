@@ -209,7 +209,7 @@
             case 'updatedh':
                 if(isset($_POST['capnhat'])&&($_POST['capnhat'])){
                     $bill_satus= $_POST['bill_satus']; 
-                    $bill_thanhtoan = $_POST["bill_thanhtoan"];
+                    $bill_thanhtoan = 0;
                     $id= $_POST['id'];
                     update_bill($id,$bill_satus);
                     if($bill_satus == 3 ){
@@ -221,7 +221,7 @@
                 echo "<script>
                     window.location.href='index.php?act=listdh';
                 </script>";
-                // include "donhang/update.php";
+                // include "donhang/list.php";
                 break;
             default:
             echo "<script>

@@ -172,6 +172,13 @@
                 
                 break;
             case 'bill':
+                if($_SESSION['mycart'][0]==""){
+                    echo "<script>
+                    alert('Giỏ hàng của ban đang rỗng. ');
+                </script>";
+                include "./views/cart/viewcart.php";
+                }else{
+
                 if($_SESSION['user']['id']==0){
                     echo "<script>
                     alert('Bạn cần đăng nhâp để đặt hàng.');
@@ -184,6 +191,7 @@
 
                 include "./views/cart/bill.php";
 
+                }
                 }
                 break;
             case 'billcomfirm':

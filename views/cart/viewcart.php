@@ -50,7 +50,7 @@
                             <input style="margin: 15px 0px;width: 30px" type="hidden"  name="id" value=<?=$cart[0] ?>>
                             <div style="display:flex;">
 	                               
-	                                <input style="margin: 0px 10px ;width: 30px" type="text" id="quantity" name="soluong" value=<?=$cart[4] ?>><br>
+	                                <input style="margin: 0px 10px ;width: 30px;text-align:center;" type="text" id="quantity" name="soluong" value=<?=$cart[4] ?>><br>
 	                                
                                     <input style="padding :0px 8px; height:30px;"  class="btn-info" type="submit" name="updatecart" value="Cập nhật">
 

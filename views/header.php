@@ -14,8 +14,7 @@
 <link rel="stylesheet" type="text/css" href="views/plugins/OwlCarousel2-2.2.1/animate.css">
 <link rel="stylesheet" type="text/css" href="views/styles/main_styles.css">
 <link rel="stylesheet" type="text/css" href="views/styles/responsive.css">
-<link rel="stylesheet" type="text/css" href="views/styles/single_styles.css">
-<link rel="stylesheet" type="text/css" href="views/styles/single_responsive.css">
+
 
 
 <!--   -->
@@ -121,7 +120,7 @@ $dmsp = loadall_danhmuc();
                             <li>
                                     <form action="index.php?act=categories" method="post">
                                         <input type="text" name="kyw">
-                                        <input class="btn-info" type="submit" name="timkiem" value="Tìm kiếm">
+                                        <input style="padding:1px 10px" class="btn-primary" type="submit" name="timkiem" value="Tìm kiếm">
                                     </form></li>
                             <!-- <li><a href="#"><i class="fa fa-user" aria-hidden="true"></i></a></li> -->
                      

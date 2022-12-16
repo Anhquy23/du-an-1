@@ -4,19 +4,23 @@
 }
 
 .buttontang {
-    background-color: red;
     padding: 0px 5px;
 }
 
 .buttongiam {
-    background-color: red;
+  
     padding: 0px 5px;
 }
 
 .soluong {
     margin-top: 5px;
 }
+
 	</style>
+	<head>
+	<link rel="stylesheet" type="text/css" href="views/styles/single_styles.css">
+<link rel="stylesheet" type="text/css" href="views/styles/single_responsive.css">
+	</head>
 	<div class="container single_product_container">
 	    <div class="row">
 	        <?php extract($onesp);
@@ -85,15 +89,15 @@
 	                            <span>Số lượng :</span>
 	                            <div class="quantity_selector">
 	                                <span class="minus">
-	                                    <div class="buttongiam"><i class="fa fa-minus" aria-hidden="true"></i></div>
+	                                    <div class="buttongiam btn-secondary"><i class="fa fa-minus" aria-hidden="true"></i></div>
 	                                </span>
-	                                <input style="margin: 15px 0px;width: 30px" type="text" id="quantity" name="soluong" value=1><br>
+	                                <input style="margin: 15px 0px;width: 30px;text-align:center;" type="text" id="quantity" name="soluong" value=1><br>
 	                                <span class="plus">
-	                                    <div class="buttontang"><i class="fa fa-plus" aria-hidden="true"></i></div>
+	                                    <div class="buttontang btn-secondary"><i class="fa fa-plus" aria-hidden="true"></i></div>
 	                                    </i>
 	                                </span>
 	                            </div>
-								<input class="red_button " type="submit" name="addtocart" value="Thêm vào giỏ hàng">
+								<input style="margin:0px 0px 0px 20px;padding:6px;" class="btn-danger" type="submit" name="addtocart" value="Thêm vào giỏ hàng">
 
 	                            </div>
 	                        </div>
@@ -146,7 +150,9 @@
 	                        <div class="product-item men">
 	                            <div class="product discount product_filter">
 	                                <div class="product_image">
+										<a   href="index.php?act=ctsp&idsp=<?= $sp['id'] ?>">
 	                                    <img src="views/images/<?= $sp['img'] ?>" alt="">
+										</a>
 	                                </div>
 	                                <div class="favorite favorite_left"></div>
 	                                <div class="product_info">
@@ -291,8 +297,8 @@
 	                <div class="benefit_item d-flex flex-row align-items-center">
 	                    <div class="benefit_icon"><i class="fa fa-truck" aria-hidden="true"></i></div>
 	                    <div class="benefit_content">
-	                        <h6>free shipping</h6>
-	                        <p>Suffered Alteration in Some Form</p>
+	                        <h6>MIỄN PHÍ VẬN CHUYỂN</h6>
+	                        <p>Bị thay đổi trong một số hình thức</p>
 	                    </div>
 	                </div>
 	            </div>
@@ -300,8 +306,8 @@
 	                <div class="benefit_item d-flex flex-row align-items-center">
 	                    <div class="benefit_icon"><i class="fa fa-money" aria-hidden="true"></i></div>
 	                    <div class="benefit_content">
-	                        <h6>cach on delivery</h6>
-	                        <p>The Internet Tend To Repeat</p>
+	                        <h6>CACH KHI GIAO</h6>
+	                        <p>Internet có xu hướng lặp lại</p>
 	                    </div>
 	                </div>
 	            </div>
@@ -309,8 +315,8 @@
 	                <div class="benefit_item d-flex flex-row align-items-center">
 	                    <div class="benefit_icon"><i class="fa fa-undo" aria-hidden="true"></i></div>
 	                    <div class="benefit_content">
-	                        <h6>45 days return</h6>
-	                        <p>Making it Look Like Readable</p>
+	                        <h6>45 NGÀY TRẢ LẠI</h6>
+	                        <p>Làm cho nó trông giống như có thể đọc được</p>
 	                    </div>
 	                </div>
 	            </div>
@@ -318,7 +324,7 @@
 	                <div class="benefit_item d-flex flex-row align-items-center">
 	                    <div class="benefit_icon"><i class="fa fa-clock-o" aria-hidden="true"></i></div>
 	                    <div class="benefit_content">
-	                        <h6>opening all week</h6>
+	                        <h6>MỞ CỬA CẢ TUẦN</h6>
 	                        <p>8AM - 09PM</p>
 	                    </div>
 	                </div>
@@ -329,30 +335,7 @@
 
 	<!-- Newsletter -->
 
-	<div class="newsletter">
-	    <div class="container">
-	        <div class="row">
-	            <div class="col-lg-6">
-	                <div
-	                    class="newsletter_text d-flex flex-column justify-content-center align-items-lg-start align-items-md-center text-center">
-	                    <h4>Newsletter</h4>
-	                    <p>Subscribe to our newsletter and get 20% off your first purchase</p>
-	                </div>
-	            </div>
-	            <div class="col-lg-6">
-	                <form action="post">
-	                    <div
-	                        class="newsletter_form d-flex flex-md-row flex-column flex-xs-column align-items-center justify-content-lg-end justify-content-center">
-	                        <input id="newsletter_email" type="email" placeholder="Your email" required="required"
-	                            data-error="Valid email is required.">
-	                        <button id="newsletter_submit" type="submit" class="newsletter_submit_btn trans_300"
-	                            value="Submit">subscribe</button>
-	                    </div>
-	                </form>
-	            </div>
-	        </div>
-	    </div>
-	</div>
+
 	<script>
 let tang = document.querySelector(".buttontang");
 let giam = document.querySelector(".buttongiam");
