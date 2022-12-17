@@ -1,10 +1,4 @@
 <?php
-    function loadall_taikhoan(){
-        $sql = "select * from taikhoan order by id desc";
-        $listtaikhoan =pdo_query($sql);
-        return $listtaikhoan;
-    } 
-    
     function insert_taikhoan($user,$pass,$email,$address,$tel){
         $sql = "INSERT INTO taikhoan(user,pass,email,address,tel) values('$user','$pass','$email','$address','$tel')";
         pdo_execute($sql);
@@ -21,6 +15,11 @@
         $sp = pdo_query_one($sql);
         return $sp;
     }
+    function loadall_taikhoan(){
+        $sql = "select * from taikhoan order by id desc";
+        $listtaikhoan =pdo_query($sql);
+        return $listtaikhoan;
+    }
     function getUserByUsernameAndEmail($user, $email) {
         $sql = "select * from taikhoan where user='".$user."' and email='".$email."'";
         $sp = pdo_query_one($sql);
@@ -31,20 +30,9 @@
         $sql = "UPDATE taikhoan set user='".$user."', email='".$email."',address='".$address."',tel='".$tel."'where id=".$id;
         pdo_execute($sql);
     }
-
-    function delete_taikhoan($id){
-        $sql = "delete from taikhoan where id =".$id;
-        pdo_execute($sql);
-    }
-
-    function deleteAllUsers(){
-        if(isset($_COOKIE['isSelected'])) {
-            $isSelected =  $_COOKIE['isSelected'];
-            $idSelected = explode(",",$isSelected);
-            for ($i = 0; $i < count($idSelected) - 1; $i++) {
-                $sql = "DELETE FROM taikhoan where id=$idSelected[$i]";
-                pdo_execute(($sql));
-            }
-        }
+    function loadone_taikhoan($id){
+        $sql = "select * from taikhoan where id =".$id;
+        $taikhoan = pdo_query_one($sql);
+        return $taikhoan;
     }
 ?>

@@ -41,7 +41,7 @@
                 extract($sanpham);
                 $suasp = "index.php?act=suasp&id=".$id;
                 $xoasp = "index.php?act=xoasp&id=".$id;
-                $hinhpath = "../upload/" .$img;
+                $hinhpath = "../views/images/" .$img;
                 if(is_file($hinhpath)){
                     $hinh="<img src='".$hinhpath."' height = '80'>";
                 }else{

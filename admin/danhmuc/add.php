@@ -11,14 +11,17 @@
             <form action="index.php?act=adddm" method="POST">
             <div class="input">
                 Mã loại <br>
-                <input type="text" name="maloai" disabled>
+                <input type="text" name="maloai" disabled id="maloai">
             </div>
             <div class="input">
                 Tên loại <br>
-                <input type="text" name="tenloai" >
+                <input type="text" name="tenloai" id="tenloai">
+                    <br>
+                    <p style="color: red ;" id="loitl"></p>
+                    <br>
             </div>
             <div style="margin-top: 20px;" class="input">
-                <input class="btn-primary" type="submit" name="themmoi" value="THÊM MỚI">
+                <input class="btn-primary" type="submit" name="themmoi" value="THÊM MỚI" onclick="return validate()">
                 <a href="index.php?act=lisdm"><input class="btn-success" type="button" value="DANH SÁCH"></a>
             </div>
             <?php
@@ -28,4 +31,14 @@
         </form>
             </div>
         </div>
+        <script>
+            function validate(){
+                var tenloai =  document.getElementById("tenloai").value;
+
+                if (tenloai == "") {
+                document.getElementById("loitl").innerHTML = "Không được để trống ";
+                return false;
+                } else document.getElementById("loitl").innerHTML = "";
+            }
+        </script>
     </div>

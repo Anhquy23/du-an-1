@@ -1,4 +1,7 @@
-<div id="piechart"></div>
+
+<div class="container-fluid">
+<h1 class="h3 mb-2 text-gray-800">BIỂU ĐỒ</h1>
+<div id="piechart"></div></div>
 
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
@@ -24,7 +27,7 @@ function drawChart() {
 ]);
 
   // Optional; add a title and set the width and height of the chart
-  var options = {'title':'Biểu đồ thống kê', 'width':550, 'height':400};
+  var options = {'width':1270, 'height':550};
 
   // Display the chart inside the <div> element with id="piechart"
   var chart = new google.visualization.PieChart(document.getElementById('piechart'));

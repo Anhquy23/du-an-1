@@ -1,11 +1,11 @@
 <?php
     include "../model/pdo.php";
-    include"../model/danhmuc.php";
-    include"../model/sanpham.php";
-    include"../model/taikhoan.php";
-    include"../model/binhluan.php";
-    include"../model/thongke.php";
-    include"../model/cart.php";
+    include "../model/danhmuc.php";
+    include "../model/sanpham.php";
+    include "../model/taikhoan.php";
+    include "../model/binhluan.php";
+    include "../model/thongke.php";
+    include "../model/cart.php";
     include "header.php";
     // controller
 
@@ -73,23 +73,16 @@
                     $giasp= $_POST['giasp'];
                     $mota= $_POST['mota'];
                     $hinhsp=$_FILES['hinhsp']['name'];
-                    $target_dir = "../upload/";
+                    $target_dir = "../views/images/";
                     $target_file = $target_dir . basename($_FILES['hinhsp']['name']);
-                    if ($tensp == '' || !is_numeric($giasp)) {
-                        $err = 'Vui lòng nhập tên và giá sản phẩm';
-                    } else if ($giasp <= 0) {
-                        $err = 'Giá sản phẩm phải lớn hơn 0';
-                    }
-                    // else if (move_uploaded_file($_FILES["hinhsp"]["tmp_name"], $target_file)) {
-                    //     //echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
-                    // } 
-                    else {
+                    if (move_uploaded_file($_FILES["hinhsp"]["tmp_name"], $target_file)) {
+                        //echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
+                    } else {
                         //echo "Sorry, there was an error uploading your file.";
-                        insert_sanpham($tensp,$giasp,$hinhsp,$mota,$iddm);
-                    $thongbao= "Thêm thành công";
                     }
 
-                    
+                    insert_sanpham($tensp,$giasp,$hinhsp,$mota,$iddm);
+                    $thongbao= "Thêm thành công";
                 }
                 $listdanhmuc =loadall_danhmuc();
                 include "sanpham/add.php";
@@ -132,7 +125,7 @@
                     $giasp= $_POST['giasp'];
                     $mota= $_POST['mota'];
                     $hinhsp=$_FILES['hinhsp']['name'];
-                    $target_dir = "../upload/";
+                    $target_dir = "../views/images/";
                     $target_file = $target_dir . basename($_FILES['hinhsp']['name']);
                     if (move_uploaded_file($_FILES["hinhsp"]["tmp_name"], $target_file)) {
                         //echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
@@ -149,7 +142,7 @@
                 break;
             case 'dskh':
                 $listtaikhoan=loadall_taikhoan();
-                include"taikhoan/list.php";
+                include "taikhoan/list.php";
                 break;
             case 'xoakh':
                 if(isset($_GET['id'])&&($_GET['id']>0)){
@@ -159,14 +152,14 @@
                 include "taikhoan/list.php";
                 break;
             case 'listbl':
-                $listbinhluan =loadall_binhluan(0);
+                $listbinhluan = binhluan();
                 include "binhluan/listbinhluan.php";
                 break;
             case 'xoabl':
                 if(isset($_GET['id'])){
                     delete_binhluan($_GET['id']);
                 }
-                $listbinhluan =loadall_binhluan(0);
+                $listbinhluan =loadall_binhluan();
                 include "binhluan/listbinhluan.php";
                 break;
             case 'listtk':
@@ -175,13 +168,15 @@
                 break;        
             case 'bieudo':
                 $listthongke =loadall_thongke();
-                include "home.php";
+                include "thongke/bieudo.php";
                 break; 
             case 'listdh':
-                if(isset($_POST['kyw'])&&($_POST['kyw']!= "")){
+                if(isset($_POST['kyw'])){
                     $kyw = $_POST['kyw'];
+                }else{
+                    $kyw = "";
                 }
-                $listbill=loadall_bill($kyw,0);
+                $listbill=loadall_bill_admin($kyw,0);
                 include "donhang/list.php";
                 break; 
             case 'xoadh':
@@ -191,12 +186,53 @@
                 $listbill =loadall_bill($kyw, 0);
                 include "donhang/list.php";
                 break;
+            case 'ctdh':
+                if(isset($_GET['id'])){
+                    $id = $_GET['id'];
+                    $iduser=$_GET['iduser'];
+                }
+                $taikhoan =  loadone_taikhoan($iduser);
+                $cart = loadcart_cthoadon($id);
+                $bill = loadone_bill($id);
+                include "donhang/ctdh.php";
+                break; 
+            case 'suadh':
+                if(isset($_GET['id'])&&($_GET['id']>0)){
+                    // $sql = "SELECT * FROM danhmuc where id =".$_GET['id'];
+                    // $dm = pdo_query_one($sql);
+                    $bill = loadone_bill($_GET['id']);
+                    
+                }
+                include "donhang/update.php";
+                break;
+
+            case 'updatedh':
+                if(isset($_POST['capnhat'])&&($_POST['capnhat'])){
+                    $bill_satus= $_POST['bill_satus']; 
+                    $bill_thanhtoan = $_POST["bill_thanhtoan"];
+                    $id= $_POST['id'];
+                    update_bill($id,$bill_satus);
+                    if($bill_satus == 3 ){
+                        update_bill_thanhtoan($bill_thanhtoan,$bill_satus);
+                    }else{
+                        update_bill_chuathanhtoan($bill_thanhtoan,$bill_satus);
+                    }
+                }
+                echo "<script>
+                    window.location.href='index.php?act=listdh';
+                </script>";
+                // include "donhang/update.php";
+                break;
             default:
-                include "home.php";
+            echo "<script>
+            window.location.href='index.php?act=bieudo';
+        </script>";
                 break;
         }
     }else{
-        include "home.php";
+        echo "<script>
+            window.location.href='index.php?act=bieudo';
+        </script>";
     }
 
     include "footer.php";

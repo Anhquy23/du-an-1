@@ -11,14 +11,12 @@
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                     <tr>
-                        <th></th>
                         <th>Mã danh mục</th>
                         <th>Tên danh mục</th>
                         <th>Số lượng</th>
                         <th>Giá cao</th>
                         <th>Giá thấp</th>
                         <th>Giá trung bình</th>
-                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -27,14 +25,12 @@
                         foreach($listthongke as $thongke){
                             extract($thongke);
                          echo '<tr>
-                            <td></td>
                             <td>'.$madm.'</td>
                             <td>'.$tendm.'</td>
                             <td>'.$countsp.'</td>
-                            <td>'.$maxprice.'</td>
-                            <td>'.$minprice.'</td>
-                            <td>'.$avgprice.'</td>
-                            <td></td>
+                            <td>'.number_format($maxprice).' đ</td>
+                            <td>'.number_format($minprice).' đ</td>
+                            <td>'.number_format($avgprice).' đ</td>                          
                         </tr>';
                         }
                         

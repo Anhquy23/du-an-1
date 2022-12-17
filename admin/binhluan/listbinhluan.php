@@ -14,8 +14,8 @@
                             <th></th>
                             <th>ID</th>
                             <th>Nội dung</th>
-                            <th>UserID</th>
-                            <th>IDpro</th>
+                            <th>Mã người dùng</th>
+                            <th>Mã sản phẩm</th>
                             <th>Ngày bình luận</th>
                             <th></th>
                         </tr>
@@ -23,9 +23,13 @@
                     <tbody>
                         <tr>
                         <?php
+                    // var_dump($listbinhluan);
+                    // die();
                 foreach ($listbinhluan as $binhluan) : ?>
-                    <!-- extract($binhluan);
-                    $xoabl = "index.php?act=xoabl&id".$id; -->
+                    <?php
+                        extract($binhluan);
+                        // $xoabl = "index.php?act=xoabl&id".$id;
+                    ?>
 
                     <tr>
                         <td><input type="checkbox"></td>
