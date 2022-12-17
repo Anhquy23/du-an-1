@@ -26,7 +26,7 @@
             </div>
             <div class="input">
                 Giá <br>
-                <input type="text" name="giasp" >
+                <input type="number" name="giasp" >
             </div>
             <div class="input ">
                 Hình ảnh <br>
@@ -43,7 +43,9 @@
             </div>
             <?php
                 if(isset($thongbao)&&($thongbao != "")) echo $thongbao;
-
+                if(isset($err)) {
+                    echo '<span style="color: red">'.$err.'</span>';
+                }        
             ?>
         </form>
             </div>

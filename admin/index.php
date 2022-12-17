@@ -75,14 +75,21 @@
                     $hinhsp=$_FILES['hinhsp']['name'];
                     $target_dir = "../upload/";
                     $target_file = $target_dir . basename($_FILES['hinhsp']['name']);
-                    if (move_uploaded_file($_FILES["hinhsp"]["tmp_name"], $target_file)) {
-                        //echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
-                    } else {
+                    if ($tensp == '' || !is_numeric($giasp)) {
+                        $err = 'Vui lòng nhập tên và giá sản phẩm';
+                    } else if ($giasp <= 0) {
+                        $err = 'Giá sản phẩm phải lớn hơn 0';
+                    }
+                    // else if (move_uploaded_file($_FILES["hinhsp"]["tmp_name"], $target_file)) {
+                    //     //echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
+                    // } 
+                    else {
                         //echo "Sorry, there was an error uploading your file.";
+                        insert_sanpham($tensp,$giasp,$hinhsp,$mota,$iddm);
+                    $thongbao= "Thêm thành công";
                     }
 
-                    insert_sanpham($tensp,$giasp,$hinhsp,$mota,$iddm);
-                    $thongbao= "Thêm thành công";
+                    
                 }
                 $listdanhmuc =loadall_danhmuc();
                 include "sanpham/add.php";
