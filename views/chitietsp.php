@@ -1,5 +1,7 @@
 	<?php
-		$_SESSION['idpro']=$_GET['idsp'];
+			if(!empty($_GET['idsp'])){
+				$_SESSION['idpro']=$_GET['idsp'];
+			}
 	?>
 	<style>
 		.flex-quantity {
